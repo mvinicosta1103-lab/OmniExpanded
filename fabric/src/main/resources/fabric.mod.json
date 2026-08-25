@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "omniexpanded",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "Addon do AlienEvo para o Palladium - Omni Expanded",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+  "license": "${mod_license}",
+  "icon": "assets/omniexpanded/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.rebirth.omniexpanded.fabric.OmniExpandedFabric"
+    ]
+  },
+  "mixins": [
+    "omniexpanded.mixins.json",
+    "omniexpanded-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "palladium": ">=1.20.1-4.2.0",
+    "alienevo": ">=1.1.3"
+  }
+}

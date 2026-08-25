@@ -1,0 +1,133 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "7.1.2"
+}
+
+repositories {
+    flatDir {
+        dirs rootProject.file("libs")
+    }
+}
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+loom {
+    accessWidenerPath = project(":common").loom.accessWidenerPath
+
+    runConfigs.configureEach {
+        // Use MC_USERNAME and MC_ACCESS_TOKEN in your system environment variables to use your Minecraft account in dev
+        if (name == "client") {
+            if(System.getenv('MC_USERNAME') && System.getenv('MC_UUID') && System.getenv('MC_ACCESS_TOKEN')) {
+                programArgs '--username', System.getenv('MC_USERNAME'), '--uuid', System.getenv('MC_UUID'), '--accessToken', System.getenv('MC_ACCESS_TOKEN')
+            }
+        }
+    }
+}
+
+configurations {
+    common
+    shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+dependencies {
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
+    modApi("net.threetag:palladium-fabric:${rootProject.palladium_version}") {
+        exclude group: "maven.modrinth", module: "sodium"
+    }
+
+    // GeckoLib
+    modImplementation("software.bernie.geckolib:geckolib-fabric-1.20.1:${rootProject.geckolib_version}")
+
+    // PortingLib Stuff
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:0.2.0"))
+    implementation(include("io.github.llamalad7:mixinextras-fabric:0.2.0"))
+    modImplementation(include("io.github.fabricators_of_create.Porting-Lib:attributes:${rootProject.portinglib_version}", {
+        exclude group: "com.github.llamalad7.mixinextras"
+    }))
+
+    // KubeJS
+    modImplementation "dev.latvian.mods:kubejs-fabric:${rootProject.kubejs_version}"
+
+    // AlienEvo (addon do Palladium que estamos expandindo) - jar local, sem maven publico.
+    // So descomente se existir uma build fabric do AlienEvo em /libs/AlienEvo-1_1_3-fabric.jar
+    // modCompileOnly ":AlienEvo:1_1_3:fabric"
+    // modLocalRuntime ":AlienEvo:1_1_3:fabric"
+
+    common(project(path: ":common", configuration: "namedElements")) { transitive false }
+    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mod_name", rootProject.mod_name
+    inputs.property "mod_author", rootProject.mod_author
+    inputs.property "mod_license", rootProject.mod_license
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "mod_name": rootProject.mod_name,
+                "mod_author": rootProject.mod_author,
+                "mod_license": rootProject.mod_license
+    }
+}
+
+sourceSets.main.resources {
+    srcDir project(":forge").file("src/generated/resources").absolutePath
+    exclude '**/data/forge/*'
+}
+
+shadowJar {
+    exclude "architectury.common.json"
+
+    configurations = [project.configurations.shadowCommon]
+    archiveClassifier = "dev-shadow"
+}
+
+remapJar {
+    injectAccessWidener = true
+    input.set shadowJar.archiveFile
+    dependsOn shadowJar
+    archiveClassifier = 'fabric'
+}
+
+jar {
+    archiveClassifier = "dev"
+}
+
+sourcesJar {
+    def commonSources = project(":common").sourcesJar
+    dependsOn commonSources
+    from commonSources.archiveFile.map { zipTree(it) }
+}
+
+components.java {
+    withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
+        skip()
+    }
+}
+
+publishing {
+    publications {
+        mavenFabric(MavenPublication) {
+            artifactId = rootProject.archives_base_name + "-" + project.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
+}
