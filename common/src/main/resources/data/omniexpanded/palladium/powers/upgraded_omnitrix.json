@@ -8,12 +8,17 @@
   },
   "hidden": true,
   "abilities": {
-    "equip": {
+    "upgraded_omnitrix_render": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "omniexpanded:upgraded_omnitrix"
+    },
+    "unequip": {
       "type": "palladium:command",
       "hidden": true,
       "hidden_in_bar": true,
       "commands": [
-        "superpower add omniexpanded:upgraded_omnitrix @s"
+        "superpower remove omniexpanded:upgraded_omnitrix @s"
       ],
       "conditions": {
         "enabling": [
@@ -22,11 +27,14 @@
             "key_type": "right_click"
           },
           {
+            "type": "palladium:sneaking"
+          },
+          {
             "type": "palladium:not",
             "conditions": [
               {
-                "type": "palladium:has_power",
-                "power": "omniexpanded:upgraded_omnitrix"
+                "type": "palladium:holding_item",
+                "item": "omniexpanded:upgraded_omnitrix"
               }
             ]
           }

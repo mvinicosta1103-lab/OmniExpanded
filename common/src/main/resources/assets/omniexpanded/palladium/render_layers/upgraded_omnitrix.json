@@ -3,22 +3,14 @@
   "layers": [
     {
       "type": "geckolib:default",
-      "model": "omniexpanded:geo/upgraded_omnitrix_core.geo.json",
-      "texture": "omniexpanded:textures/models/upgraded_omnitrix_core/upgraded_omnitrix_core.png",
-      "animation_file": "omniexpanded:animations/upgraded_omnitrix_core.animation.json",
-      "conditions": [],
-      "animation_controller": [
-        {
-          "name": "main",
-          "transition_tick_time": 0,
-          "triggers": {
-            "activate_trigger": [
-              { "type": "then_play_and_hold", "animation": "animation.upgraded_omnitrix_core.activate" }
-            ]
-          },
-          "default_animation": "animation.upgraded_omnitrix_core.idle"
-        }
-      ]
+      "model": {
+        "normal": "omniexpanded:geo/upgraded_omnitrix.geo.json"
+      },
+      "texture": {
+        "base": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png",
+        "transformers": [],
+        "variables": {}
+      }
     }
   ]
 }
