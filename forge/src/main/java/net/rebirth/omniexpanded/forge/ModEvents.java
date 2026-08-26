@@ -14,6 +14,8 @@ import net.minecraft.world.scores.Score;
 import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.CreativeModeTabEvent;
+import net.rebirth.omniexpanded.item.OmniExpandedItems;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -78,6 +80,13 @@ public class ModEvents {
     // o "float" primitivo num objeto Float a cada leitura/escrita, gerando lixo de memória
     // desnecessário 20 vezes por segundo por jogador. O fastutil guarda o float "cru".
     private static final Object2FloatMap<UUID> xpAccumulator = new Object2FloatOpenHashMap<>();
+
+    @SubscribeEvent
+    public static void onBuildCreativeTab(CreativeModeTabEvent.BuildContents event) {
+        if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.INGREDIENTS) {
+            event.accept(OmniExpandedItems.UPGRADED_OMNITRIX);
+        }
+    }
 
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
