@@ -1,7 +1,7 @@
 {
   "format_version": "1.8.0",
   "animations": {
-    "animation.upgraded_omnitrix.idle": {
+    "animation.upgraded_omnitrix_core.idle": {
       "loop": true,
       "animation_length": 3,
       "bones": {
@@ -12,7 +12,7 @@
             "3.0": { "vector": [0, 0, 0], "easing": "easeInOutSine" }
           }
         },
-        "lights": {
+        "lights2": {
           "scale": {
             "0.0": { "vector": [1, 1, 1] },
             "1.5": { "vector": [1.08, 1.08, 1.08], "easing": "easeInOutSine" },
@@ -29,29 +29,7 @@
       }
     },
 
-    "animation.upgraded_omnitrix.press_button": {
-      "loop": "hold_on_last_frame",
-      "animation_length": 0.3,
-      "override_previous_animation": true,
-      "bones": {
-        "button": {
-          "position": {
-            "0.0": { "vector": [0, 0, 0] },
-            "0.1": { "vector": [0, -0.5, 0], "easing": "easeOutQuad" },
-            "0.3": { "vector": [0, 0, 0], "easing": "easeOutBack" }
-          }
-        },
-        "green_cap": {
-          "scale": {
-            "0.0": { "vector": [1, 1, 1] },
-            "0.1": { "vector": [0.92, 0.92, 0.92], "easing": "easeOutQuad" },
-            "0.3": { "vector": [1, 1, 1], "easing": "easeOutBack" }
-          }
-        }
-      }
-    },
-
-    "animation.upgraded_omnitrix.activate": {
+    "animation.upgraded_omnitrix_core.activate": {
       "loop": "hold_on_last_frame",
       "animation_length": 0.6,
       "override_previous_animation": true,
@@ -80,18 +58,11 @@
             "0.6": { "vector": [0, -360, 0], "easing": "easeOutQuad" }
           }
         },
-        "lights": {
+        "lights2": {
           "scale": {
             "0.0": { "vector": [1, 1, 1] },
             "0.35": { "vector": [1.4, 1.4, 1.4], "easing": "easeOutQuad" },
             "0.6": { "vector": [1.15, 1.15, 1.15], "easing": "easeInOutQuad" }
-          }
-        },
-        "green_cap": {
-          "position": {
-            "0.0": { "vector": [0, 0, 0] },
-            "0.25": { "vector": [0, 0.4, 0], "easing": "easeOutBack" },
-            "0.6": { "vector": [0, 0.2, 0], "easing": "easeInOutQuad" }
           }
         },
         "cylinder": {
@@ -99,28 +70,6 @@
             "0.0": { "vector": [1, 1, 1] },
             "0.3": { "vector": [1, 1.2, 1], "easing": "easeOutBack" },
             "0.6": { "vector": [1, 1, 1], "easing": "easeInOutQuad" }
-          }
-        }
-      }
-    },
-
-    "animation.upgraded_omnitrix.transform_pulse": {
-      "loop": "hold_on_last_frame",
-      "animation_length": 0.4,
-      "override_previous_animation": true,
-      "bones": {
-        "os_omnitrix": {
-          "scale": {
-            "0.0": { "vector": [1, 1, 1] },
-            "0.15": { "vector": [1.25, 1.25, 1.25], "easing": "easeOutQuad" },
-            "0.4": { "vector": [1, 1, 1], "easing": "easeOutBounce" }
-          }
-        },
-        "lights": {
-          "scale": {
-            "0.0": { "vector": [1, 1, 1] },
-            "0.15": { "vector": [1.6, 1.6, 1.6], "easing": "easeOutQuad" },
-            "0.4": { "vector": [1, 1, 1], "easing": "easeOutBounce" }
           }
         }
       }
