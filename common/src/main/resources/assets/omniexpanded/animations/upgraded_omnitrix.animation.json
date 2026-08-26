@@ -5,10 +5,24 @@
       "loop": true,
       "animation_length": 3,
       "bones": {
-        "face_plate": {
+        "core": {
           "position": {
             "0.0": { "vector": [0, 0, 0] },
             "1.5": { "vector": [0, 0.1, 0], "easing": "easeInOutSine" },
+            "3.0": { "vector": [0, 0, 0], "easing": "easeInOutSine" }
+          }
+        },
+        "lights": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "1.5": { "vector": [1.08, 1.08, 1.08], "easing": "easeInOutSine" },
+            "3.0": { "vector": [1, 1, 1], "easing": "easeInOutSine" }
+          }
+        },
+        "dial": {
+          "rotation": {
+            "0.0": { "vector": [0, 0, 0] },
+            "1.5": { "vector": [0, 4, 0], "easing": "easeInOutSine" },
             "3.0": { "vector": [0, 0, 0], "easing": "easeInOutSine" }
           }
         }
@@ -20,11 +34,18 @@
       "animation_length": 0.3,
       "override_previous_animation": true,
       "bones": {
-        "button_top": {
+        "button": {
           "position": {
             "0.0": { "vector": [0, 0, 0] },
-            "0.1": { "vector": [0, 0, 0.5], "easing": "easeOutQuad" },
+            "0.1": { "vector": [0, -0.5, 0], "easing": "easeOutQuad" },
             "0.3": { "vector": [0, 0, 0], "easing": "easeOutBack" }
+          }
+        },
+        "green_cap": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.1": { "vector": [0.92, 0.92, 0.92], "easing": "easeOutQuad" },
+            "0.3": { "vector": [1, 1, 1], "easing": "easeOutBack" }
           }
         }
       }
@@ -32,26 +53,52 @@
 
     "animation.upgraded_omnitrix.activate": {
       "loop": "hold_on_last_frame",
-      "animation_length": 0.5,
+      "animation_length": 0.6,
       "override_previous_animation": true,
       "bones": {
-        "face_plate": {
+        "core": {
+          "position": {
+            "0.0": { "vector": [0, 0, 0] },
+            "0.3": { "vector": [0, 0.6, 0], "easing": "easeOutBack" },
+            "0.6": { "vector": [0, 0.3, 0], "easing": "easeInOutQuad" }
+          },
           "scale": {
             "0.0": { "vector": [1, 1, 1] },
-            "0.25": { "vector": [1.15, 1.4, 1.15], "easing": "easeOutBack" },
-            "0.5": { "vector": [1, 1, 1], "easing": "easeInOutQuad" }
+            "0.3": { "vector": [1.15, 1.15, 1.15], "easing": "easeOutBack" },
+            "0.6": { "vector": [1, 1, 1], "easing": "easeInOutQuad" }
           }
         },
-        "symbol_bar_1": {
+        "dial": {
           "rotation": {
-            "0.0": { "vector": [0, 45, 0] },
-            "0.5": { "vector": [0, 405, 0], "easing": "easeOutQuad" }
+            "0.0": { "vector": [0, 0, 0] },
+            "0.6": { "vector": [0, 360, 0], "easing": "easeOutQuad" }
           }
         },
-        "symbol_bar_2": {
+        "dial_black_rim": {
           "rotation": {
-            "0.0": { "vector": [0, -45, 0] },
-            "0.5": { "vector": [0, -405, 0], "easing": "easeOutQuad" }
+            "0.0": { "vector": [0, 0, 0] },
+            "0.6": { "vector": [0, -360, 0], "easing": "easeOutQuad" }
+          }
+        },
+        "lights": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.35": { "vector": [1.4, 1.4, 1.4], "easing": "easeOutQuad" },
+            "0.6": { "vector": [1.15, 1.15, 1.15], "easing": "easeInOutQuad" }
+          }
+        },
+        "green_cap": {
+          "position": {
+            "0.0": { "vector": [0, 0, 0] },
+            "0.25": { "vector": [0, 0.4, 0], "easing": "easeOutBack" },
+            "0.6": { "vector": [0, 0.2, 0], "easing": "easeInOutQuad" }
+          }
+        },
+        "cylinder": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.3": { "vector": [1, 1.2, 1], "easing": "easeOutBack" },
+            "0.6": { "vector": [1, 1, 1], "easing": "easeInOutQuad" }
           }
         }
       }
@@ -62,10 +109,17 @@
       "animation_length": 0.4,
       "override_previous_animation": true,
       "bones": {
-        "omnitrix_root": {
+        "os_omnitrix": {
           "scale": {
             "0.0": { "vector": [1, 1, 1] },
             "0.15": { "vector": [1.25, 1.25, 1.25], "easing": "easeOutQuad" },
+            "0.4": { "vector": [1, 1, 1], "easing": "easeOutBounce" }
+          }
+        },
+        "lights": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.15": { "vector": [1.6, 1.6, 1.6], "easing": "easeOutQuad" },
             "0.4": { "vector": [1, 1, 1], "easing": "easeOutBounce" }
           }
         }
