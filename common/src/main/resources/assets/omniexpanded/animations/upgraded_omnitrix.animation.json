@@ -1,0 +1,75 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.upgraded_omnitrix.idle": {
+      "loop": true,
+      "animation_length": 3,
+      "bones": {
+        "face_plate": {
+          "position": {
+            "0.0": { "vector": [0, 0, 0] },
+            "1.5": { "vector": [0, 0.1, 0], "easing": "easeInOutSine" },
+            "3.0": { "vector": [0, 0, 0], "easing": "easeInOutSine" }
+          }
+        }
+      }
+    },
+
+    "animation.upgraded_omnitrix.press_button": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.3,
+      "override_previous_animation": true,
+      "bones": {
+        "button_top": {
+          "position": {
+            "0.0": { "vector": [0, 0, 0] },
+            "0.1": { "vector": [0, 0, 0.5], "easing": "easeOutQuad" },
+            "0.3": { "vector": [0, 0, 0], "easing": "easeOutBack" }
+          }
+        }
+      }
+    },
+
+    "animation.upgraded_omnitrix.activate": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.5,
+      "override_previous_animation": true,
+      "bones": {
+        "face_plate": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.25": { "vector": [1.15, 1.4, 1.15], "easing": "easeOutBack" },
+            "0.5": { "vector": [1, 1, 1], "easing": "easeInOutQuad" }
+          }
+        },
+        "symbol_bar_1": {
+          "rotation": {
+            "0.0": { "vector": [0, 45, 0] },
+            "0.5": { "vector": [0, 405, 0], "easing": "easeOutQuad" }
+          }
+        },
+        "symbol_bar_2": {
+          "rotation": {
+            "0.0": { "vector": [0, -45, 0] },
+            "0.5": { "vector": [0, -405, 0], "easing": "easeOutQuad" }
+          }
+        }
+      }
+    },
+
+    "animation.upgraded_omnitrix.transform_pulse": {
+      "loop": "hold_on_last_frame",
+      "animation_length": 0.4,
+      "override_previous_animation": true,
+      "bones": {
+        "omnitrix_root": {
+          "scale": {
+            "0.0": { "vector": [1, 1, 1] },
+            "0.15": { "vector": [1.25, 1.25, 1.25], "easing": "easeOutQuad" },
+            "0.4": { "vector": [1, 1, 1], "easing": "easeOutBounce" }
+          }
+        }
+      }
+    }
+  }
+}
