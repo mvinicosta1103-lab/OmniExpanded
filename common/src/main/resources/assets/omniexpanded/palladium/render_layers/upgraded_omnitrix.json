@@ -3,9 +3,7 @@
   "layers": [
     {
       "type": "geckolib:default",
-      "model": {
-        "normal": "omniexpanded:geo/upgraded_omnitrix.geo.json"
-      },
+      "model": "omniexpanded:geo/upgraded_omnitrix.geo.json",
       "texture": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png",
       "animation_file": "omniexpanded:animations/upgraded_omnitrix.animation.json",
       "animation_controller": [
@@ -14,10 +12,16 @@
           "transition_tick_time": 0,
           "triggers": {
             "activate_trigger": [
-              { "type": "then_play_and_hold", "animation": "animation.upgraded_omnitrix.activate" }
+              {
+                "type": "then_play_and_hold",
+                "animation": "animation.upgraded_omnitrix.activate"
+              }
             ],
             "transform_trigger": [
-              { "type": "then_play_and_hold", "animation": "animation.upgraded_omnitrix.transform_pulse" }
+              {
+                "type": "then_play_and_hold",
+                "animation": "animation.upgraded_omnitrix.transform_pulse"
+              }
             ]
           },
           "default_animation": "animation.upgraded_omnitrix.idle"
@@ -27,7 +31,10 @@
           "transition_tick_time": 0,
           "triggers": {
             "press_trigger": [
-              { "type": "then_play_and_hold", "animation": "animation.upgraded_omnitrix.press_button" }
+              {
+                "type": "then_play_and_hold",
+                "animation": "animation.upgraded_omnitrix.press_button"
+              }
             ]
           }
         }
