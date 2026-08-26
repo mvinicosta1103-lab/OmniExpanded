@@ -3,14 +3,8 @@
   "layers": [
     {
       "type": "geckolib:default",
-      "model": {
-        "normal": "omniexpanded:geo/upgraded_omnitrix.geo.json"
-      },
-      "texture": {
-        "base": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png",
-        "transformers": [],
-        "variables": {}
-      }
+      "model": "omniexpanded:geo/upgraded_omnitrix.geo.json",
+      "texture": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png"
     }
   ]
 }

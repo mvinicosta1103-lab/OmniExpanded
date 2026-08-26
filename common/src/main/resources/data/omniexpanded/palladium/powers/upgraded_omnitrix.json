@@ -27,9 +27,6 @@
             "key_type": "right_click"
           },
           {
-            "type": "palladium:sneaking"
-          },
-          {
             "type": "palladium:not",
             "conditions": [
               {
