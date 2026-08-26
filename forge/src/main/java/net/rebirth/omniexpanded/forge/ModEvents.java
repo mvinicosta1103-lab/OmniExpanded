@@ -14,7 +14,7 @@ import net.minecraft.world.scores.Score;
 import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.rebirth.omniexpanded.item.OmniExpandedItems;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -82,7 +82,7 @@ public class ModEvents {
     private static final Object2FloatMap<UUID> xpAccumulator = new Object2FloatOpenHashMap<>();
 
     @SubscribeEvent
-    public static void onBuildCreativeTab(CreativeModeTabEvent.BuildContents event) {
+    public static void onBuildCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.INGREDIENTS) {
             event.accept(OmniExpandedItems.UPGRADED_OMNITRIX);
         }
