@@ -18,7 +18,8 @@
       "hidden": true,
       "hidden_in_bar": true,
       "commands": [
-        "superpower remove omniexpanded:upgraded_omnitrix @s"
+        "superpower remove omniexpanded:upgraded_omnitrix @s",
+        "superpower remove alienevo:prototype_omnitrix @s"
       ],
       "conditions": {
         "enabling": [

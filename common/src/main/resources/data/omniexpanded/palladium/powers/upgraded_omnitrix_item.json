@@ -13,6 +13,25 @@
       "hidden": true,
       "hidden_in_bar": true,
       "commands": [
+        "scoreboard objectives add AlienEvo.BasePrimary dummy",
+        "scoreboard objectives add AlienEvo.BaseSecondary dummy",
+        "scoreboard objectives add AlienEvo.BaseTertiary dummy",
+        "scoreboard objectives add AlienEvo.Buttons dummy",
+        "scoreboard objectives add AlienEvo.CoreSide dummy",
+        "scoreboard objectives add AlienEvo.CoreTop dummy",
+        "scoreboard objectives add AlienEvo.DialInner dummy",
+        "scoreboard objectives add AlienEvo.DialOuter dummy",
+        "scoreboard objectives add AlienEvo.Tubes dummy",
+        "scoreboard players set @s AlienEvo.BasePrimary -1",
+        "scoreboard players set @s AlienEvo.BaseSecondary -1",
+        "scoreboard players set @s AlienEvo.BaseTertiary -1",
+        "scoreboard players set @s AlienEvo.Buttons -1",
+        "scoreboard players set @s AlienEvo.CoreSide -1",
+        "scoreboard players set @s AlienEvo.CoreTop -1",
+        "scoreboard players set @s AlienEvo.DialInner -1",
+        "scoreboard players set @s AlienEvo.DialOuter -1",
+        "scoreboard players set @s AlienEvo.Tubes -1",
+        "superpower add alienevo:prototype_omnitrix @s",
         "superpower add omniexpanded:upgraded_omnitrix @s"
       ],
       "conditions": {
@@ -25,8 +44,20 @@
             "type": "palladium:not",
             "conditions": [
               {
-                "type": "palladium:has_power",
-                "power": "omniexpanded:upgraded_omnitrix"
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:has_power",
+                    "power": "alienevo:prototype_omnitrix"
+                  },
+                  {
+                    "type": "alienevo:is_alien"
+                  },
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "AlienEvo.Unworthy"
+                  }
+                ]
               }
             ]
           }
