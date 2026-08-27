@@ -14,7 +14,7 @@ import net.threetag.palladiumcore.registry.RegistrySupplier;
 public class OmniExpandedItems {
 
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create("omniexpanded", Registries.ITEM);
+            DeferredRegister.create("alienevo", Registries.ITEM);
 
     // stacksTo(1) porque é um dispositivo vestido/segurado, não um item empilhável
     public static final RegistrySupplier<Item> UPGRADED_OMNITRIX = ITEMS.register(
