@@ -4,7 +4,15 @@
     {
       "type": "geckolib:default",
       "model": "omniexpanded:geo/upgraded_omnitrix.geo.json",
-      "texture": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png"
+      "texture": "omniexpanded:textures/models/upgraded_omnitrix/upgraded_omnitrix.png",
+      "animation_file": "omniexpanded:animations/upgraded_omnitrix.animation.json",
+      "animation_controller": [
+        {
+          "name": "idle_loop",
+          "transition_tick_time": 10,
+          "animation": "animation.upgraded_omnitrix_core.idle"
+        }
+      ]
     }
   ]
 }
