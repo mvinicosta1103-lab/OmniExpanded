@@ -20,7 +20,7 @@
       "commands": [
         "superpower remove omniexpanded:upgraded_omnitrix @s",
         "superpower remove alienevo:prototype_omnitrix @s",
-        "item replace entity @s weapon.mainhand with omniexpanded:upgraded_omnitrix"
+        "item replace entity @s weapon.mainhand with alienevo:upgraded_omnitrix"
       ],
       "conditions": {
         "enabling": [
@@ -34,7 +34,7 @@
               {
                 "type": "palladium:item_in_slot",
                 "item": {
-                  "item": "omniexpanded:upgraded_omnitrix"
+                  "item": "alienevo:upgraded_omnitrix"
                 },
                 "slot": "mainhand"
               }
