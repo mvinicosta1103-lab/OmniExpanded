@@ -1,14 +1,29 @@
 {
   "name": {
-    "text": "Upgraded Omnitrix"
+    "text": "Prototype Omnitrix"
   },
   "icon": {
     "type": "palladium:texture",
-    "texture": "omniexpanded:textures/gui/upgraded/omnitrix.png"
+    "texture": "alienevo:textures/gui/prototype/omnitrix.png"
   },
   "hidden": true,
+  "ability_bar_texture": "alienevo:textures/gui/bars/omnitrix_bar.png",
   "abilities": {
-    "equip": {
+    "apply_omnitrix": {
+      "type": "alienevo:couple",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "dna_bond"
+          }
+        ]
+      }
+    },
+    "dna_bond": {
       "type": "palladium:command",
       "hidden": true,
       "hidden_in_bar": true,
@@ -20,8 +35,11 @@
         "scoreboard objectives add AlienEvo.CoreSide dummy",
         "scoreboard objectives add AlienEvo.CoreTop dummy",
         "scoreboard objectives add AlienEvo.DialInner dummy",
+        "scoreboard objectives add AlienEvo.DialInner dummy",
         "scoreboard objectives add AlienEvo.DialOuter dummy",
         "scoreboard objectives add AlienEvo.Tubes dummy",
+        "scoreboard objectives add AlienEvo.10kStage dummy",
+        "scoreboard objectives add AlienEvo.10kPhase dummy",
         "scoreboard players set @s AlienEvo.BasePrimary -1",
         "scoreboard players set @s AlienEvo.BaseSecondary -1",
         "scoreboard players set @s AlienEvo.BaseTertiary -1",
@@ -31,7 +49,7 @@
         "scoreboard players set @s AlienEvo.DialInner -1",
         "scoreboard players set @s AlienEvo.DialOuter -1",
         "scoreboard players set @s AlienEvo.Tubes -1",
-        "superpower add alienevo:prototype_omnitrix @s",
+        "playsound alienevo:prototype_recharge master @a",
         "superpower add omniexpanded:upgraded_omnitrix @s"
       ],
       "conditions": {
@@ -48,7 +66,7 @@
                 "conditions": [
                   {
                     "type": "palladium:has_power",
-                    "power": "alienevo:prototype_omnitrix"
+                    "power": "omniexpanded:upgraded_omnitrix"
                   },
                   {
                     "type": "alienevo:is_alien"
