@@ -1,0 +1,4 @@
+{
+  "function": "minecraft:set_nbt",
+  "tag": "{storedBasePrimaryScore:-1,storedBaseSecondaryScore:-1,storedBaseTertiaryScore:-1,storedButtonsScore:-1,storedCoreSideScore:-1,storedCoreTopScore:-1,storedDialInnerScore:-1,storedDialOuterScore:-1,storedTubesScore:-1}"
+}
