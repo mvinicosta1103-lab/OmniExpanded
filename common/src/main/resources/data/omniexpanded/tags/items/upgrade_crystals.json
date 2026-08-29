@@ -1,0 +1,21 @@
+{
+    "replace": false,
+    "values": [
+      "alienevo:upgrade_crystal_white",
+      "alienevo:upgrade_crystal_light_gray",
+      "alienevo:upgrade_crystal_gray",
+      "alienevo:upgrade_crystal_black",
+      "alienevo:upgrade_crystal_brown",
+      "alienevo:upgrade_crystal_red",
+      "alienevo:upgrade_crystal_orange",
+      "alienevo:upgrade_crystal_yellow",
+      "alienevo:upgrade_crystal",
+      "alienevo:upgrade_crystal_green",
+      "alienevo:upgrade_crystal_cyan",
+      "alienevo:upgrade_crystal_light_blue",
+      "alienevo:upgrade_crystal_blue",
+      "alienevo:upgrade_crystal_purple",
+      "alienevo:upgrade_crystal_magenta",
+      "alienevo:upgrade_crystal_pink"
+    ]
+  }

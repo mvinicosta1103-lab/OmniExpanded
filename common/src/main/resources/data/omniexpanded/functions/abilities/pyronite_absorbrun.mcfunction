@@ -1,0 +1,1 @@
+fill ~-9 ~-9 ~-9 ~9 ~9 ~9 minecraft:command_block{auto:1b,Command:"function alienevo:abilities/pyronite_absorb"} replace #minecraft:fire

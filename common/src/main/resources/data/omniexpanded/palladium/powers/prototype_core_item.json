@@ -1,0 +1,57 @@
+{
+  "name": {
+    "text": "Prototype Omnitrix"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "alienevo:textures/gui/prototype/omnitrix.png"
+  },
+  "hidden": true,
+  "ability_bar_texture": "alienevo:textures/gui/bars/omnitrix_bar.png",
+  "abilities": {
+    "dna_bond": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "commands": [
+        "playsound alienevo:prototype_core_place master @a[distance=0..5] ~ ~ ~",
+        "tag @s remove AlienEvo.RemovedCore",
+        "scoreboard players set @s AlienEvo.NoCore 0"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click"
+          },
+          {
+            "type": "palladium:has_tag",
+            "tag": "AlienEvo.RemovedCore"
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "alienevo:prototype_omnitrix",
+            "ability": "settings_menu",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "display_dna": {
+      "type": "alienevo:apply_dna_from_prototype_core",
+      "hidden": true,
+      "property": "alienevodnaapplication",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "dna_bond"
+          }
+        ]
+      }
+    }
+  }
+}

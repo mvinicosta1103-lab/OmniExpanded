@@ -1,0 +1,9 @@
+{
+  "function": "minecraft:exploration_map",
+  "destination": "alienevo:machine_stronghold",
+  "decoration": "red_x",
+  "zoom": 5,
+  "search_radius": 50,
+  "skip_existing_chunks": true,
+  "display_name": ""
+}

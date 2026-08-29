@@ -1,0 +1,23 @@
+{
+  "name": {
+    "text": "blind"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "alienevo:textures/gui/aurora/aurora.png"
+  },
+  "persistent_data": true,
+  "hidden": true,
+  "background": "alienevo:textures/gui/power_screen/power_screen.png",
+  "primary_color": "#ffb351",
+  "allow_bar_shrinking": false,
+  "secondary_color": "#332e27",
+  "ability_bar_texture": "alienevo:textures/gui/ability_bar/interface.png",
+  "abilities": {
+    "visual_prowess": {
+      "type": "palladium:shader_effect",
+      "hidden": true,
+      "shader": "alienevo:shaders/post/blind.json"
+    }
+}
+}

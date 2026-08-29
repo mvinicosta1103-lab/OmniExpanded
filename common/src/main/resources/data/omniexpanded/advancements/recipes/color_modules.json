@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_upgrade_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "alienevo:upgrade_crystals"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "alienevo:color_module"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_upgrade_crystal",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "alienevo:color_module_white",
+      "alienevo:color_module_lightgray",
+      "alienevo:color_module_gray",
+      "alienevo:color_module_black",
+      "alienevo:color_module_brown",
+      "alienevo:color_module_red",
+      "alienevo:color_module_orange",
+      "alienevo:color_module_yellow",
+      "alienevo:color_module_lime",
+      "alienevo:color_module_green",
+      "alienevo:color_module_cyan",
+      "alienevo:color_module_lightblue",
+      "alienevo:color_module_blue",
+      "alienevo:color_module_purple",
+      "alienevo:color_module_magenta",
+      "alienevo:color_module_pink"
+    ]
+  },
+  "sends_telemetry_event": false
+}

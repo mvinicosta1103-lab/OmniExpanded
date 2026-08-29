@@ -1,0 +1,130 @@
+{
+  "name": {
+    "text": "Prototype Omnitrix"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "alienevo:textures/gui/prototype/omnitrix.png"
+  },
+  "hidden": true,
+  "ability_bar_texture": "alienevo:textures/gui/bars/omnitrix_bar.png",
+  "abilities": {
+    "glow_module": {
+      "type": "alienevo:glow_color_module",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SlotS",
+            "min_score": 0,
+            "max_score": 0
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "alienevo:prototype_omnitrix",
+            "ability": "settings_menu",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "AlienEvo.RemovedCore"
+              }
+                    
+            ]
+          }
+        ]
+      }
+    },
+    "primary_module": {
+      "type": "alienevo:primary_color_module",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SlotS",
+            "min_score": 1,
+            "max_score": 1
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "alienevo:prototype_omnitrix",
+            "ability": "settings_menu",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "AlienEvo.RemovedCore"
+              }
+                    
+            ]
+          }
+        ]
+      }
+    },
+    "secondary_module": {
+      "type": "alienevo:secondary_color_module",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SlotS",
+            "min_score": 2,
+            "max_score": 2
+          },
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "alienevo:prototype_omnitrix",
+            "ability": "settings_menu",
+            "property": "value",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "AlienEvo.RemovedCore"
+              }
+                    
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

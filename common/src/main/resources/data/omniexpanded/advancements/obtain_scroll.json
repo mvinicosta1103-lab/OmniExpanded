@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "alienevo:machine_scroll"
+    },
+    "title": {
+      "translate": "advancement.alienevo.obtain_scroll.title"
+    },
+    "description": {
+      "translate": "advancement.alienevo.obtain_scroll.desc"
+    },
+    "background": "alienevo:textures/gui/power_screen/power_screen.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alienevo:discover_priory",
+  "criteria": {
+    "machine_scroll": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "alienevo:machine_scroll"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "machine_scroll"
+    ]
+  ]
+}

@@ -1,0 +1,780 @@
+{
+    "name": {
+      "text": "Prototype Omnitrix"
+    },
+    "icon": {
+      "type": "palladium:texture",
+      "texture": "alienevo:textures/gui/prototype/omnitrix.png"
+    },
+    "hidden": true,
+
+    "background": "alienevo:textures/gui/hud/background/prototype_background.png",
+
+    "abilities": {
+      "sdm_loop": {
+        "type": "palladium:command",
+        "commands": ["scoreboard players add @s AlienEvo.SelfDestruct 1"],
+        "first_tick_commands": ["scoreboard objectives add AlienEvo.SelfDestruct dummy",
+        "scoreboard objectives add AlienEvo.SdmBlink dummy",
+        "scoreboard objectives add AlienEvo.SdmFrame dummy"]
+      },
+      "sdm_blink": {
+        "type": "palladium:command",
+        "commands": ["scoreboard players add @s AlienEvo.SdmBlink 1",
+        "execute if score @s AlienEvo.SdmBlink matches 1..10 run scoreboard players set @s AlienEvo.SdmFrame 6",
+        "execute if score @s AlienEvo.SdmBlink matches 11..20 run scoreboard players set @s AlienEvo.SdmFrame 5",
+        "execute if score @s AlienEvo.SdmBlink matches 20 run scoreboard players set @s AlienEvo.SdmBlink 1"],
+        "last_tick_commands": ["scoreboard players set @s AlienEvo.SdmBlink 0", "scoreboard players set @s AlienEvo.SdmFrame 6"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109100,
+            "max_score": 109490}]}
+  
+          },
+          "sdm_sound_0": {
+            "type": "palladium:command",
+            "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1"],
+            "bar_color": "green",
+            "list_index": 4,
+            "hidden": false,
+            "conditions": {
+              "enabling": [
+                {
+                  "type": "palladium:objective_score",
+                  "objective": "AlienEvo.SelfDestruct",
+                  "min_score": 2,
+                  "max_score": 2}]}
+    },           
+    "self_destruct_sound_1": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm",
+    "volume": 5,
+    "pitch": 1,
+    "looping": false,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 15515,
+          "max_score": 15515}]}
+        },
+        "explosion_1": {
+        "type": "alienevo:explosion",
+        "strength": 2,
+        "random_x_range": 0,
+        "random_y_range": 0,
+        "random_z_range": 0,
+        "causes_fire": false,
+        "conditions": {
+          "enabling": [
+            {
+              "type": "palladium:objective_score",
+                  "objective": "AlienEvo.SelfDestruct",
+                  "min_score": 15510,
+                  "max_score": 15510}]}
+      },
+      "shockwave_effect_1": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @a ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @a ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @a ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @a ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 15500,
+                "max_score": 15500}]}
+              },
+              "sdm_sound": {
+                "type": "palladium:command",
+                "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                "bar_color": "green",
+                "list_index": 4,
+                "hidden": false,
+                "conditions": {
+                  "enabling": [
+                    {
+                      "type": "palladium:objective_score",
+                      "objective": "AlienEvo.SelfDestruct",
+                      "min_score": 15515,
+                      "max_score": 15515}]}
+            },
+            "transform_orange": {
+              "type": "palladium:energy_beam",
+              "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+              "damage": 10,
+              "max_distance": 3,
+              "speed": 200,
+              "conditions": {
+                "enabling": [
+                  {
+                    "type": "palladium:objective_score",
+                        "objective": "AlienEvo.SelfDestruct",
+                        "min_score": 15500,
+                        "max_score": 15510}]}
+      },
+      "shockwave_effect_2": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @a ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @a ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @a ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @a ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 31000,
+                "max_score": 31000}]}
+          },
+            "destruct_orange_1": {
+              "type": "palladium:energy_beam",
+              "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+              "damage": 10,
+              "max_distance": 3,
+              "speed": 200,
+              "conditions": {
+                "enabling": [
+                  {
+                    "type": "palladium:objective_score",
+                        "objective": "AlienEvo.SelfDestruct",
+                        "min_score": 31000,
+                        "max_score": 31020}]}
+                      },
+                      "sdm_sound_2": {
+                        "type": "palladium:command",
+                        "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                        "bar_color": "green",
+                        "list_index": 4,
+                        "hidden": false,
+                        "conditions": {
+                          "enabling": [
+                            {
+                              "type": "palladium:objective_score",
+                              "objective": "AlienEvo.SelfDestruct",
+                              "min_score": 31025,
+                              "max_score": 31025}]}
+     },
+        "explosion_2": {
+        "type": "alienevo:explosion",
+        "strength": 4,
+        "random_x_range": 0,
+        "random_y_range": 0,
+        "random_z_range": 0,
+        "causes_fire": false,
+        "conditions": {
+          "enabling": [
+            {
+              "type": "palladium:objective_score",
+                  "objective": "AlienEvo.SelfDestruct",
+                  "min_score": 31020,
+                  "max_score": 31020}]}
+    },           
+    "self_destruct_sound_3": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm",
+    "volume": 1,
+    "pitch": 1,
+    "looping": false,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 46500,
+          "max_score": 46500}]}
+      },
+      "shockwave_effect_3": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 46500,
+                "max_score": 46500}]}
+          },
+            "destruct_orange_2": {
+              "type": "palladium:energy_beam",
+              "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+              "damage": 10,
+              "max_distance": 3,
+              "speed": 200,
+              "conditions": {
+                "enabling": [
+                  {
+                    "type": "palladium:objective_score",
+                        "objective": "AlienEvo.SelfDestruct",
+                        "min_score": 46500,
+                        "max_score": 46530}]}
+                      },
+                      "explosion_3": {
+                      "type": "alienevo:explosion",
+                      "strength": 6,
+                      "random_x_range": 0,
+                      "random_y_range": 0,
+                      "random_z_range": 0,
+                      "causes_fire": false,
+                      "conditions": {
+                        "enabling": [
+                          {
+                            "type": "palladium:objective_score",
+                                "objective": "AlienEvo.SelfDestruct",
+                                "min_score": 46530,
+                                "max_score": 46530}]}
+                      },
+                      "sdm_sound_3": {
+                        "type": "palladium:command",
+                        "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                        "bar_color": "green",
+                        "list_index": 4,
+                        "hidden": false,
+                        "conditions": {
+                          "enabling": [
+                            {
+                              "type": "palladium:objective_score",
+                              "objective": "AlienEvo.SelfDestruct",
+                              "min_score": 46535,
+                              "max_score": 46535}]}
+    },           
+    "self_destruct_sound_4": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm",
+    "volume": 1,
+    "pitch": 1,
+    "looping": false,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 62000,
+          "max_score": 62000}]}
+      },
+      "shockwave_effect_4": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 62000,
+                "max_score": 62000}]}
+        
+        },
+            "destruct_orange_3": {
+              "type": "palladium:energy_beam",
+              "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+              "damage": 10,
+              "max_distance": 3,
+              "speed": 200,
+              "conditions": {
+                "enabling": [
+                  {
+                    "type": "palladium:objective_score",
+                        "objective": "AlienEvo.SelfDestruct",
+                        "min_score": 62000,
+                        "max_score": 62040}]}
+                      },
+                      "explosion_4": {
+                      "type": "alienevo:explosion",
+                      "strength": 8,
+                      "random_x_range": 0,
+                      "random_y_range": 0,
+                      "random_z_range": 0,
+                      "causes_fire": false,
+                      "conditions": {
+                        "enabling": [
+                          {
+                            "type": "palladium:objective_score",
+                                "objective": "AlienEvo.SelfDestruct",
+                                "min_score": 62040,
+                                "max_score": 62040}]}
+                      },
+                      "sdm_sound_4": {
+                        "type": "palladium:command",
+                        "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                        "bar_color": "green",
+                        "list_index": 4,
+                        "hidden": false,
+                        "conditions": {
+                          "enabling": [
+                            {
+                              "type": "palladium:objective_score",
+                              "objective": "AlienEvo.SelfDestruct",
+                              "min_score": 62045,
+                              "max_score": 62045}]}
+    },           
+    "self_destruct_sound_5": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm",
+    "volume": 1,
+    "pitch": 1,
+    "looping": false,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 77500,
+          "max_score": 77500}]}
+      },
+      "shockwave_effect_5": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 77500,
+                "max_score": 77500}]}
+              },
+              "destruct_orange_4": {
+                "type": "palladium:energy_beam",
+                "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+                "damage": 10,
+                "max_distance": 3,
+                "speed": 200,
+                "conditions": {
+                  "enabling": [
+                    {
+                      "type": "palladium:objective_score",
+                          "objective": "AlienEvo.SelfDestruct",
+                          "min_score": 77500,
+                          "max_score": 77550}]}
+                        },
+                        "explosion_6": {
+                        "type": "alienevo:explosion",
+                        "strength": 10,
+                        "random_x_range": 0,
+                        "random_y_range": 0,
+                        "random_z_range": 0,
+                        "causes_fire": false,
+                        "conditions": {
+                          "enabling": [
+                            {
+                              "type": "palladium:objective_score",
+                                  "objective": "AlienEvo.SelfDestruct",
+                                  "min_score": 77550,
+                                  "max_score": 77550}]}
+                        },
+                        "sdm_sound_5": {
+                          "type": "palladium:command",
+                          "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                          "bar_color": "green",
+                          "list_index": 4,
+                          "hidden": false,
+                          "conditions": {
+                            "enabling": [
+                              {
+                                "type": "palladium:objective_score",
+                                "objective": "AlienEvo.SelfDestruct",
+                                "min_score": 77555,
+                                "max_score": 77555}]}
+                              },
+                              "shockwave_effect_6": {
+                                "type": "palladium:command",
+                                "commands": [
+                                "playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+                                "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+                                "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1"],
+                                "bar_color": "green",
+                                "list_index": 4,
+                                "hidden": false,
+                                "conditions": {
+                                "enabling": [
+                                  {
+                                    "type": "palladium:objective_score",
+                                        "objective": "AlienEvo.SelfDestruct",
+                                        "min_score": 93000,
+                                        "max_score": 93000}]}
+    },           
+    "self_destruct_sound_blink": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm_blink",
+    "volume": 1,
+    "pitch": 1,
+    "looping": true,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109100,
+            "max_score": 109490}]}
+          },
+          "destruct_orange_5": {
+            "type": "palladium:energy_beam",
+            "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+            "damage": 20,
+            "max_distance": 3,
+            "speed": 200,
+            "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 93000,
+          "max_score": 93060}]}
+        },
+        "explosion_7": {
+        "type": "alienevo:explosion",
+        "strength": 12,
+        "random_x_range": 0,
+        "random_y_range": 0,
+        "random_z_range": 0,
+        "causes_fire": false,
+        "conditions": {
+          "enabling": [
+            {
+              "type": "palladium:objective_score",
+                  "objective": "AlienEvo.SelfDestruct",
+                  "min_score": 93060,
+                  "max_score": 93060}]}
+        },
+        "sdm_sound_6": {
+          "type": "palladium:command",
+          "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+          "bar_color": "green",
+          "list_index": 4,
+          "hidden": false,
+          "conditions": {
+            "enabling": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 93065,
+                "max_score": 93065}]}
+  },           
+    "self_destruct_sound_7": {
+    "type": "palladium:play_sound",
+    "sound": "alienevo:prototype_sdm",
+    "volume": 1,
+    "pitch": 1,
+    "looping": false,
+    "play_self": false,
+    "conditions": {
+      "enabling": [
+        {
+          "type": "palladium:objective_score",
+          "objective": "AlienEvo.SelfDestruct",
+          "min_score": 108500,
+          "max_score": 108500}]}
+      
+      },
+      "shockwave_effect_7": {
+        "type": "palladium:command",
+        "commands": [
+        "playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1"],
+        "bar_color": "green",
+        "list_index": 4,
+        "hidden": false,
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 108500,
+                "max_score": 108500}]}
+        },
+          "destruct_orange_6": {
+            "type": "palladium:energy_beam",
+            "energy_beam": "alienevo:transform_bubbles/transform_bubble_orange",
+            "damage": 20,
+            "max_distance": 3,
+            "speed": 200,
+          "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+                "objective": "AlienEvo.SelfDestruct",
+                "min_score": 108500,
+                "max_score": 108570}]}
+              },
+              "explosion_8": {
+              "type": "alienevo:explosion",
+              "strength": 14,
+              "random_x_range": 0,
+              "random_y_range": 0,
+              "random_z_range": 0,
+              "causes_fire": false,
+              "conditions": {
+                "enabling": [
+                  {
+                    "type": "palladium:objective_score",
+                        "objective": "AlienEvo.SelfDestruct",
+                        "min_score": 108570,
+                        "max_score": 108570}]}
+              },
+              "sdm_sound_7": {
+                "type": "palladium:command",
+                "commands": ["playsound alienevo:prototype_sdm master @a ~ ~ ~ 20 1 1","scoreboard players add @s AlienEvo.SdmFrame 1"],
+                "bar_color": "green",
+                "list_index": 4,
+                "hidden": false,
+                "conditions": {
+                  "enabling": [
+                    {
+                      "type": "palladium:objective_score",
+                      "objective": "AlienEvo.SelfDestruct",
+                      "min_score": 108575,
+                      "max_score": 108575}]}
+  },
+      "sdm_destruct": {
+        "type": "palladium:command",
+        "commands": ["playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 20 1.25 1","playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 20 1 1","playsound minecraft:entity.elder_guardian.death master @s ~ ~ ~ 20 2 1",
+        "playsound minecraft:entity.firework_rocket.twinkle master @s ~ ~ ~ 1 2 1",
+        "playsound minecraft:entity.generic.explode master @s ~ ~ ~ 1 2 1",
+        "superpower remove alienevo:all",
+        "superpower remove selfdestruct:prototype_omnitrix_sdm",
+        "scoreboard players set @s AlienEvo.Timer 0",
+        "scoreboard players set @s AlienEvo.SdmFrame 0",
+        "scoreboard players set @s AlienEvo.SelfDestruct 0"],
+        "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109505,
+            "max_score": 109505}]}
+          },
+          "massive_destruct": {
+            "type": "palladium:energy_beam",
+            "energy_beam": "alienevo:transform_bubbles/self_destruct",
+            "damage": 10,
+            "max_distance": 3,
+            "speed": 200,
+            "conditions": {
+              "enabling": [
+                {
+                  "type": "palladium:objective_score",
+                  "objective": "AlienEvo.SelfDestruct",
+                  "min_score": 109500,
+                  "max_score": 109505}]}
+          },
+          "explosion_big": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 0,
+          "random_y_range": 0,
+          "random_z_range": 0,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-11": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 15,
+          "random_y_range": 3,
+          "random_z_range": 15,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-2": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-1": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 30,
+          "random_y_range": 20,
+          "random_z_range": 30,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-3": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 70,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-4": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 50,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-5": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-6": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-7": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-8": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range":50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-9": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+          },
+          "explosion_big-10": {
+          "type": "alienevo:explosion",
+          "strength": 150,
+          "random_x_range": 50,
+          "random_y_range": 0,
+          "random_z_range": 50,
+          "causes_fire": true,
+          "conditions": {
+          "enabling": [
+          {
+            "type": "palladium:objective_score",
+            "objective": "AlienEvo.SelfDestruct",
+            "min_score": 109500,
+            "max_score": 109505}]}
+        
+          }    
+    }
+}

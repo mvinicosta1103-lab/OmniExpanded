@@ -1,0 +1,34 @@
+{
+    "name": "alienevo:crash_site",
+    "fallback": "minecraft:empty",
+    "elements": [
+      {
+        "weight": 9,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "alienevo:ship1",
+          "projection": "rigid",
+          "processors": "minecraft:empty"
+        }
+      },
+      {
+        "weight": 9,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "alienevo:ship3",
+          "projection": "rigid",
+          "processors": "minecraft:empty"
+        }
+      },
+      {
+        "weight": 9,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "alienevo:ship4",
+          "projection": "rigid",
+          "processors": "minecraft:empty"
+        }
+      }
+    ]
+  }
+  

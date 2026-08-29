@@ -1,0 +1,86 @@
+{
+  "name": {
+    "text": "Ancient Staff"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "#alienevo:omnitrix_main"
+  },
+  "persistent_data": true,
+  "hidden": true,
+  "background": "minecraft:textures/block/green_stained_glass.png",
+  "primary_color": "#E72D2D",
+  "secondary_color": "#1a1a1a",
+  "ability_bar_texture": "alienevo:textures/gui/ability_bar/interface.png",
+  "abilities": {
+    "staff_projectile": {
+      "type": "palladium:projectile",
+      "icon": "minecraft:textures/block/green_stained_glass.png",
+      "title": "Laser Blast",
+      "bar_color": "red",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": 0,
+      "entity_type": "palladium:custom_projectile",
+      "entity_data": {
+        "Damage": 8,
+        "Gravity": 0,
+        "Size": 1,
+        "Lifetime": 100,
+        "DieOnEntityHit": true,
+        "DieOnBlockHit": true,
+        "Appearances": [
+          {
+            "Type": "laser",
+            "Thickness": 0.5,
+            "Color": "#36f174"
+          }
+        ]
+      },
+      "inaccuracy": 0,
+      "velocity": 2,
+      "swinging_arm": "none",
+      "damage_from_player": false,
+      "ignore_player_movement": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 15,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }
+        ]
+      }
+    },
+    "staff_projectile_sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:block.amethyst_block.resonate player @a ~ ~ ~ 10 1 1",
+        "playsound minecraft:entity.vex.hurt player @a ~ ~ ~ 10 1.5 1",
+        "playsound minecraft:block.respawn_anchor.charge player @a ~ ~ ~ 10 2 1"
+      ],
+      "last_tick_commands": [],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "alienevo:ancient_staff",
+            "ability": "staff_projectile"
+          }
+        ]
+      }
+    },
+    "aim_staff": {
+      "type": "palladium:aim",
+      "icon": "minecraft:blaze_rod",
+      "time": 7,
+      "arm": "main_arm",
+      "hidden": true,
+      "hidden_in_bar": true
+      }
+    }
+  }

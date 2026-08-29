@@ -1,0 +1,13 @@
+{
+  "name": "Flight Test",
+  "icon": "minecraft:feather",
+  "abilities": {
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:flight_speed",
+      "title": "Flight",
+      "list_index": 0,
+      "amount": 1.4
+    }
+  }
+}

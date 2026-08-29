@@ -1,0 +1,38 @@
+{
+  "display": {
+    "icon": {
+      "item": "alienevo:prototype_omnitrix"
+    },
+    "title": {
+      "translate": "advancement.alienevo.craft_omnitrix.title",
+      "bold": false,
+      "color": "green"
+    },
+    "description": {
+      "translate": "advancement.alienevo.craft_omnitrix.desc"
+    },
+    "background": "alienevo:textures/gui/power_screen/power_screen.png",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alienevo:obtain_core",
+  "criteria": {
+    "prototype_omnitrix_crafted": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "alienevo:prototype_omnitrixes"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "prototype_omnitrix_crafted"
+    ]
+  ]
+}

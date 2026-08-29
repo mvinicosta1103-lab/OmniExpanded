@@ -1,0 +1,27 @@
+{
+	"values":[
+		"minecraft:air",
+        "minecraft:grass",
+        "minecraft:snow",
+        "minecraft:tall_grass",
+        "minecraft:dandelion",
+        "minecraft:sunflower",
+        "minecraft:azure_bluet",
+        "minecraft:poppy",
+        "minecraft:cornflower",
+        "minecraft:dead_bush",
+        "minecraft:rose_bush",
+        "minecraft:blue_orchid",
+        "minecraft:allium",
+        "minecraft:lilac",
+        "minecraft:peony",
+        "minecraft:oxeye_daisy",
+        "minecraft:fern",
+        "minecraft:brown_mushroom",
+        "minecraft:red_mushroom",
+        "minecraft:large_fern",
+        "minecraft:water",
+        "minecraft:lava"
+	]
+    
+}

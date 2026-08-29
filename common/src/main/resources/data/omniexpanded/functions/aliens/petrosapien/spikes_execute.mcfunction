@@ -1,0 +1,2 @@
+execute as @s at @s run execute at @s run summon armor_stand ~ ~ ~ {Tags:[SpikeRay, SpikeRayStart], NoGravity:1,Invulnerable:1,Small:1,Invisible:1, Marker:1b}
+execute as @s at @s run tp @e[tag=SpikeRayStart] @s

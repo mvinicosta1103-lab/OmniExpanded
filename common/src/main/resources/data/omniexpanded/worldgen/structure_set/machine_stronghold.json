@@ -1,0 +1,14 @@
+{
+    "structures": [
+      {
+        "structure": "alienevo:machine_stronghold",
+        "weight": 1
+      }
+    ],
+    "placement": {
+      "type": "minecraft:random_spread",
+      "spacing": 360,
+      "separation": 240,
+      "salt": 67812262
+    }
+  }

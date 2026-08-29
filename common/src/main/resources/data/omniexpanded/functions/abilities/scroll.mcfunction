@@ -1,0 +1,1 @@
+tellraw @a [{"translate":"fail.alienevo.machine_scroll","color":"#7aa587"}]

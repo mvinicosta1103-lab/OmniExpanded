@@ -1,0 +1,73 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.prototype_core_pickup.idle": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"core2": {
+					"rotation": {
+						"vector": ["math.sin(query.anim_time * 100) * 10", -30, "math.cos(query.anim_time * 100) * 15"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 1.75", 0]
+					}
+				},
+				"magic": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 200) * 5", "query.anim_time*200", "math.cos(query.anim_time * 200) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 1.5", 0]
+					}
+				},
+				"magic2": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 150) * 5", "query.anim_time*150", "math.cos(query.anim_time * 150) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 1", 0]
+					}
+				},
+				"magic3": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 100) * 5", "query.anim_time*100", "math.cos(query.anim_time * 100) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 0.5", 0]
+					}
+				},
+				"magic4": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 100) * 5", "query.anim_time*100", "math.cos(query.anim_time * 100) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 1.5", 0]
+					}
+				},
+				"magic5": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 100) * 5", "query.anim_time*150", "math.cos(query.anim_time * 100) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 1", 0]
+					},
+					"scale": {
+						"vector": [0.75, 0.75, 0.75]
+					}
+				},
+				"magic6": {
+					"rotation": {
+						"vector": ["math.cos(query.anim_time * 100) * 5", "query.anim_time*200", "math.cos(query.anim_time * 100) * 5"]
+					},
+					"position": {
+						"vector": [0, "math.cos(query.anim_time * 75) * 0.5", 0]
+					},
+					"scale": {
+						"vector": [0.5, 0.5, 0.5]
+					}
+				}
+			}
+		}
+	}
+}

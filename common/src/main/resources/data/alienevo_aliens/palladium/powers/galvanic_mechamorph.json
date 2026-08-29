@@ -1,0 +1,1321 @@
+{
+  "name": {
+    "text": "Galvanic Mechamorph"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "#alienevo:aliens/alien_9/head"
+  },
+  "persistent_data": true,
+  "hidden": false,
+  "background": "alienevo:textures/gui/power_screen/power_screen.png",
+  "primary_color": "#8ed721",
+  "allow_bar_shrinking": false,
+  "secondary_color": "#332e27",
+  "ability_bar_texture": "alienevo:textures/gui/ability_bar/interface.png",
+  "abilities": {
+    "galvanic_mechamorph_loop": {
+      "type": "palladium:command",
+      "hidden": false,
+      "title": {
+        "translate": "species.alienevo_aliens.9"
+      },
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9"
+      },
+      "icon": "#alienevo:aliens/alien_9/head",
+      "first_tick_commands": [
+        "scale easing set palladium:ability pehkui:exponential_out",
+        "scoreboard objectives add AlienEvo.Fall dummy",
+        "tag @s add GalvanicMechamorph",
+        "scale divide pehkui:drops 1.4",
+        "scale divide pehkui:projectiles 1.4",
+        "scale set pehkui:hitbox_height 1.15",
+        "scale set pehkui:eye_height 1.225",
+        "scoreboard objectives add Galvanic_mechamorph.XP dummy",
+        "scoreboard objectives add Galvanic_mechamorph.Level dummy",
+        "scoreboard objectives add Galvanic_mechamorph.SkillPoint dummy"
+      ],
+      "last_tick_commands": [
+        "scale set pehkui:drops 1",
+        "scale set pehkui:hitbox_height 1",
+        "scale set pehkui:eye_height 1",
+        "scale set pehkui:projectiles 1",
+        "tag @s remove GalvanicMechamorph"
+      ],
+      "commands": [
+        "scoreboard players add @s[palladium.power=selfdestruct:prototype_omnitrix_sdm] AlienEvo.SelfDestruct 1",
+        "effect clear @s minecraft:poison"
+      ]
+    },
+    "galvanic_mechamorph_scale": {
+      "type": "palladium:command",
+      "hidden": false,
+      "title": "Galvanic Mechamorph Species",
+      "gui_position": [
+        0,
+        0
+      ],
+      "description": "",
+      "icon": "#alienevo:aliens/alien_9/head",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "scale set pehkui:hitbox_height 1.15",
+        "scale set pehkui:eye_height 1.225"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "puddle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "hide_body": {
+      "type": "palladium:hide_body_part",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "body_parts": [
+        "right_arm",
+        "left_arm",
+        "chest",
+        "chest_overlay",
+        "right_arm_overlay",
+        "left_arm_overlay",
+        "right_leg",
+        "left_leg",
+        "cape",
+        "right_leg_overlay",
+        "left_leg_overlay",
+        "head",
+        "head_overlay"
+      ],
+      "affects_first_person": true
+    },
+    "phase": {
+      "type": "palladium:intangibility",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null",
+      "vertical": false,
+      "whitelist": "afomni:phase",
+      "blacklist": "palladium:prevents_intangibility"
+    },
+    "galvanic_mechamorph": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "alienevo:aliens/alien_9/galvanic_mechamorph"
+    },
+    "slower_hunger": {
+      "type": "alienevo:slower_hunger",
+      "reduction_factor": 0,
+      "hidden": true,
+      "hidden_in_bar": false
+    },
+    "size_change": {
+      "type": "palladium:size",
+      "title": "Size Change",
+      "hidden": true,
+      "scale": 1.4
+    },
+    "base_form": {
+      "type": "alienevo:omnitrix_detransform",
+      "icon": "#alienevo:detransform",
+      "title": {
+        "translate": "ability.alienevo.omnitrix.base_form"
+      },
+      "hidden": true,
+      "list_index": 4,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:has_tag",
+                "tag": "AlienEvo.BaseForm"
+              },
+              {
+                "type": "palladium:has_tag",
+                "tag": "AlienEvo.MasterControl"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "timeout_function": {
+      "type": "alienevo:omnitrix_timer",
+      "hidden": true
+    },
+    "beam": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/beam",
+      "list_index": 0,
+      "bar_color": "black",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.optic_laser"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 150,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "beam_unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "puddle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "beam_color": {
+      "type": "palladium:energy_beam",
+      "energy_beam": "alienevo:upgrade_beam",
+      "damage_type": "alienevo:energy_beam",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "beam"
+          }
+        ]
+      }
+    },
+    "punch_righthand": {
+      "type": "palladium:animation_timer",
+      "list_index": 2,
+      "max_value": 8,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 8,
+            "cooldown": 50,
+            "needs_empty_hand": true,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "punch_unlock"
+          },
+          {
+            "type": "afomni:is_mainhand",
+            "hand_type": "right"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "puddle"
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "glide"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "punch_lefthand": {
+      "type": "palladium:animation_timer",
+      "list_index": 2,
+      "max_value": 8,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 8,
+            "cooldown": 50,
+            "needs_empty_hand": true,
+            "key_type": "right_click"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "punch_unlock"
+          },
+          {
+            "type": "afomni:is_mainhand",
+            "hand_type": "left"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "puddle"
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "glide"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "super_punch_projectile": {
+      "type": "palladium:projectile",
+      "hidden": true,
+      "entity_type": "palladium:custom_projectile",
+      "inaccuracy": 0,
+      "velocity": 3,
+      "swinging_arm": "main_arm",
+      "damage_from_player": true,
+      "entity_data": {
+        "Size": 1,
+        "Gravity": 0,
+        "Lifetime": 4,
+        "KnockbackStrength": 2.5,
+        "Appearances": [
+          {
+            "Type": "particles",
+            "ParticleType": "minecraft:explosion",
+            "Spread": 0,
+            "Amount": 1
+          }
+        ]
+      },
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "alienevo_aliens:galvanic_mechamorph",
+                "ability": "punch_righthand",
+                "property": "value",
+                "min": 8,
+                "max": 8
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "alienevo_aliens:galvanic_mechamorph",
+                "ability": "punch_lefthand",
+                "property": "value",
+                "min": 8,
+                "max": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "punch_sound": {
+      "type": "palladium:play_sound",
+      "hidden": true,
+      "list_index": -1,
+      "sound": "minecraft:entity.generic.explode",
+      "volume": 0.5,
+      "pitch": 1.5,
+      "looping": false,
+      "play_self": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:or",
+            "conditions": [
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "alienevo_aliens:galvanic_mechamorph",
+                "ability": "punch_righthand",
+                "property": "value",
+                "min": 8,
+                "max": 8
+              },
+              {
+                "type": "palladium:ability_integer_property",
+                "power": "alienevo_aliens:galvanic_mechamorph",
+                "ability": "punch_lefthand",
+                "property": "value",
+                "min": 8,
+                "max": 8
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "puddle": {
+      "type": "palladium:animation_timer",
+      "list_index": 1,
+      "max_value": 8,
+      "bar_color": "black",
+      "icon": "#alienevo:aliens/alien_9/puddle",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.liquid_form"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "needs_empty_hand": false,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "liqud_form_unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "puddle_height": {
+      "type": "palladium:command",
+      "hidden": true,
+      "last_tick_commands": [
+        "scale set pehkui:hitbox_height 1",
+        "scale set pehkui:entity_reach 1",
+        "scale set pehkui:hitbox_height 1",
+        "scale set pehkui:eye_height 1"
+      ],
+      "commands": [],
+      "first_tick_commands": [
+        "scale set pehkui:hitbox_height 0.01",
+        "scale set pehkui:entity_reach 0.01",
+        "scale set pehkui:eye_height 0.2"
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "puddle"
+          }
+        ]
+      }
+    },
+    "puddle_walk": {
+      "type": "palladium:animation_timer",
+      "list_index": 1,
+      "max_value": 5,
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "puddle"
+          }
+        ]
+      }
+    },
+    "liquid_on": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "alienevo:aliens/alien_9/galvanic_mechamorph",
+      "controller": "galvanic_mechamorph",
+      "animation_trigger": "puddle",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "puddle",
+            "property": "value",
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "liquid_off": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "alienevo:aliens/alien_9/galvanic_mechamorph",
+      "controller": "galvanic_mechamorph",
+      "animation_trigger": "puddle_off",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "puddle",
+            "property": "value",
+            "min": 3,
+            "max": 3
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "puddle"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "glide": {
+      "type": "alienevo:elytra_flight",
+      "bar_color": "black",
+      "glide_speed": 0.9,
+      "gravity": 0.08,
+      "title": {
+        "translate": "ability.alienevo_aliens.9.glide"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:crouching"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "glide_unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:on_ground"
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "ability": "puddle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "glide_anim": {
+      "type": "palladium:animation_timer",
+      "list_index": 2,
+      "max_value": 8,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "glide"
+          }
+        ]
+      }
+    },
+    "tech_upgrade": {
+      "type": "palladium:command",
+      "list_index": 3,
+      "commands": [
+        "execute if block ~ ~-1 ~ minecraft:lightning_rod run superpower add alienevo_aliens:galvanic_rod @s",
+        "execute if block ~ ~-1 ~ minecraft:lightning_rod run superpower remove alienevo_aliens:galvanic_mechamorph @s",
+        "execute as @s at @s if block ~ ~-1 ~ minecraft:lightning_rod run fill ~ ~-1 ~ ~ ~ ~ air replace minecraft:lightning_rod"
+      ],
+      "bar_color": "black",
+      "hidden": true,
+      "icon": "#alienevo:aliens/alien_9/upgrade",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.upgrade"
+      },
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "needs_empty_hand": false,
+            "key_type": "key_bind"
+          }
+        ]
+      }
+    },
+    "spike_hands": {
+      "type": "palladium:animation_timer",
+      "list_index": 2,
+      "max_value": 3,
+      "bar_color": "black",
+      "icon": "#alienevo:aliens/alien_9/spikes",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.spike_hands"
+      },
+      "hidden": true,
+      "hidden_in_bar": false,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:toggle",
+            "needs_empty_hand": false,
+            "key_type": "key_bind"
+          }
+        ],
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "spike_hands_unlock"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:or",
+                "conditions": [
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "glide"
+                  },
+                  {
+                    "type": "palladium:ability_enabled",
+                    "power": "null",
+                    "ability": "puddle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "show_both_arms_spike_hands": {
+      "type": "palladium:show_both_arms",
+      "hidden": true,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "spike_hands"
+          }
+        ]
+      }
+    },
+    "no_jump": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "palladium:jump_power",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "hidden": true,
+      "uuid": "31a99128-35bc-49fd-b596-7eafb7a29eca",
+      "amount": -5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "puddle"
+          }
+        ]
+      }
+    },
+    "spike_anim": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "alienevo:aliens/alien_9/galvanic_mechamorph",
+      "controller": "galvanic_mechamorph",
+      "animation_trigger": "hands_on",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "spike_hands",
+            "property": "value",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "spike_hands"
+          }
+        ]
+      }
+    },
+    "spike_anim_off": {
+      "type": "geckolib:render_layer_animation",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "render_layer": "alienevo:aliens/alien_9/galvanic_mechamorph",
+      "controller": "galvanic_mechamorph",
+      "animation_trigger": "hands_off",
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "spike_hands",
+            "property": "value",
+            "min": 2,
+            "max": 2
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:ability_enabled",
+                "power": "null",
+                "ability": "spike_hands"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "spike_attack": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "hidden": true,
+      "uuid": "3ba6978e-b150-4efb-a6bd-b30ff5dde33a",
+      "amount": 6,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_integer_property",
+            "power": "null",
+            "ability": "spike_hands",
+            "property": "value",
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "attack_1": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "amount": 4,
+      "hidden": true,
+      "uuid": "fe73df35-c80a-4521-971d-4c8178c732fc"
+    },
+    "defense": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "amount": 12,
+      "hidden": true,
+      "uuid": "b149e33a-5bde-4a1c-9fb8-a72f764c826b"
+    },
+    "fall_resistance": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_fall"
+      ]
+    },
+    "name_change": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "name": {
+        "translate": "species.alienevo_aliens.9"
+      },
+      "conditions": {
+        "enabling": [],
+        "unlocking": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "alienevo:current_alien_nickname",
+                "value": "species.alienevo_aliens.9"
+              },
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "alienevo.nickname"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "nickname": {
+      "type": "palladium:name_change",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "name": [
+        {
+          "nbt": "KubeJSPersistentData.alienevo_9",
+          "entity": "@s"
+        }
+      ],
+      "conditions": {
+        "enabling": [],
+        "unlocking": [
+          {
+            "type": "palladium:and",
+            "conditions": [
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "alienevo:current_alien_nickname",
+                    "value": "species.alienevo_aliens.9"
+                  }
+                ]
+              },
+              {
+                "type": "palladium:not",
+                "conditions": [
+                  {
+                    "type": "palladium:has_tag",
+                    "tag": "alienevo.nickname"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "slot_restriction": {
+      "type": "palladium:restrict_slots",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "slots": [
+        "head",
+        "chest",
+        "legs",
+        "feet",
+        "trinkets:head/hat",
+        "trinkets:head/face",
+        "trinkets:chest/back",
+        "trinkets:chest/necklace",
+        "trinkets:chest/cape",
+        "trinkets:hand/ring",
+        "trinkets:hand/glove",
+        "trinkets:offhand/glove",
+        "trinkets:offhand/ring",
+        "curios:hands"
+      ]
+    },
+    "tech_unlock": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/upgrade",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.upgrade"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        1
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.upgrade"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "galvanic_mechamorph_loop"
+          }
+        ]
+      }
+    },
+    "attack_upgrade_1": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "title": {
+        "translate": "unlock.alienevo_aliens.9.attack_1"
+      },
+      "uuid": "1cd535da-1418-4dc6-94b8-f3c11c7f9ac9",
+      "list_index": -1,
+      "hidden": false,
+      "amount": 1,
+      "gui_position": [
+        0,
+        2
+      ],
+      "description": "null",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "tech_unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "beam_unlock": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/beam",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.optic_laser"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        0,
+        3
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.optic_laser"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "attack_upgrade_1"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "glide_unlock": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/glide",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.glide"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        0.5,
+        0.5
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.glide"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "galvanic_mechamorph_loop"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "punch_unlock": {
+      "type": "palladium:dummy",
+      "icon": "alienevo:textures/gui/aliens/alien_9/punch.png",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.stretchy_punch"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        -0.5,
+        0.5
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.stretchy_punch"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "galvanic_mechamorph_loop"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "attack_upgrade": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "title": {
+        "translate": "unlock.alienevo_aliens.9.attack_1"
+      },
+      "uuid": "59f42100-370f-4366-abbf-28885f448f89",
+      "list_index": -1,
+      "hidden": false,
+      "amount": 1,
+      "gui_position": [
+        -1,
+        1
+      ],
+      "description": "null",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "punch_unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "spike_hands_unlock": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/spikes",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.spike_hands"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        -1.5,
+        1.5
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.spike_hands"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "attack_upgrade"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "attack_unlock": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.attack_damage",
+      "icon": "minecraft:textures/item/iron_sword.png",
+      "title": {
+        "translate": "unlock.alienevo_aliens.9.attack_1"
+      },
+      "uuid": "95e8785b-9146-48f3-976a-92ecd9bdc7e5",
+      "amount": 1,
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        -1.5,
+        2.5
+      ],
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "spike_hands_unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "defense_upgrade_1": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "title": {
+        "translate": "unlock.alienevo_aliens.9.defense_2"
+      },
+      "uuid": "212ebe07-1418-4443-900e-14d835c8c890",
+      "list_index": -1,
+      "hidden": false,
+      "amount": 2,
+      "gui_position": [
+        1,
+        1
+      ],
+      "description": "null",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "glide_unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "liqud_form_unlock": {
+      "type": "palladium:dummy",
+      "icon": "#alienevo:aliens/alien_9/puddle",
+      "title": {
+        "translate": "ability.alienevo_aliens.9.liquid_form"
+      },
+      "hidden": false,
+      "list_index": -1,
+      "gui_position": [
+        1.5,
+        1.5
+      ],
+      "description": {
+        "translate": "desc.alienevo_aliens.9.liquid_form"
+      },
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "defense_upgrade_1"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "defense_upgrade_2": {
+      "type": "palladium:attribute_modifier",
+      "attribute": "minecraft:generic.armor",
+      "title": {
+        "translate": "unlock.alienevo_aliens.9.defense_2"
+      },
+      "uuid": "1448572b-c13e-4b31-be57-72ec6d48f6aa",
+      "list_index": -1,
+      "hidden": false,
+      "amount": 2,
+      "gui_position": [
+        1.5,
+        2.5
+      ],
+      "description": "null",
+      "conditions": {
+        "unlocking": [
+          {
+            "type": "palladium:ability_unlocked",
+            "power": "null",
+            "ability": "liqud_form_unlock"
+          },
+          {
+            "type": "palladium:scoreboard_score_buyable",
+            "objective": "Galvanic_mechamorph.SkillPoint",
+            "score": 1,
+            "icon": "#alienevo:aliens/alien_9/head",
+            "description": {
+              "translate": "unlock.alienevo_aliens.9.skillpoint"
+            }
+          }
+        ]
+      }
+    },
+    "regen": {
+      "type": "palladium:healing",
+      "hidden": true,
+      "frequency": 10,
+      "amount": 1.5
+    },
+    "fire_resistance": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_fall",
+        "minecraft:is_fire",
+        "alienevo:evoastra",
+        "minecraft:is_freezing",
+        "minecraft:is_drowning"
+      ]
+    },
+    "freeze_immunity": {
+      "type": "alienevo:freeze_immunity",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "gui_position": "null",
+      "description": "null"
+    },
+    "enter_omnitrix_upgrade": {
+      "type": "palladium:command",
+      "icon": "#alienevo:aliens/alien_9/upgrade",
+      "title": {
+        "text": "Entrar no Omnitrix"
+      },
+      "bar_color": "green",
+      "hidden_in_bar": false,
+      "commands": [
+        "playsound alienevo:prototype_recharge master @a",
+        "superpower remove alienevo_aliens:galvanic_mechamorph @s",
+        "superpower remove alienevo:prototype_omnitrix @s",
+        "clear @s alienevo:prototype_omnitrix 1",
+        "give @s alienevo:upgraded_omnitrix",
+        "superpower add omniexpanded:upgraded_omnitrix @s"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:has_power",
+            "power": "alienevo:prototype_omnitrix"
+          }
+        ]
+      }
+    }
+  }
+}

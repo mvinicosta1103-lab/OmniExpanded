@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_prototype_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "alienevo:prototype_cores"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "alienevo:color_module"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_prototype_core",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "alienevo:prototype_omnitrix",
+      "alienevo:prototype_omnitrix_white",
+      "alienevo:prototype_omnitrix_orange",
+      "alienevo:prototype_omnitrix_magenta",
+      "alienevo:prototype_omnitrix_light_blue",
+      "alienevo:prototype_omnitrix_yellow",
+      "alienevo:prototype_omnitrix_pink",
+      "alienevo:prototype_omnitrix_gray",
+      "alienevo:prototype_omnitrix_light_gray",
+      "alienevo:prototype_omnitrix_cyan",
+      "alienevo:prototype_omnitrix_purple",
+      "alienevo:prototype_omnitrix_blue",
+      "alienevo:prototype_omnitrix_brown",
+      "alienevo:prototype_omnitrix_green",
+      "alienevo:prototype_omnitrix_red",
+      "alienevo:prototype_omnitrix_black"
+    ]
+  },
+  "sends_telemetry_event": false
+}

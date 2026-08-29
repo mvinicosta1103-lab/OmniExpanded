@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "alienevo:code_tablet_selfdestruct"
+    },
+    "title": {
+      "translate": "advancement.alienevo.code_destruct.title",
+      "color": "red",
+      "bold": false
+    },
+    "description": {
+      "translate": "advancement.alienevo.code_destruct.desc"
+    },
+    "background": "alienevo:textures/gui/power_screen/power_screen.png",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alienevo:discover_blast_chamber",
+  "criteria": {
+    "code_mastercontrol": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

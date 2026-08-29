@@ -1,0 +1,79 @@
+{
+  "name": {
+    "text": "Machine Scroll"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "#alienevo:omnitrix_main"
+  },
+  "persistent_data": true,
+  "hidden": true,
+  "background": "minecraft:textures/block/green_stained_glass.png",
+  "primary_color": "#E72D2D",
+  "secondary_color": "#1a1a1a",
+  "ability_bar_texture": "alienevo:textures/gui/ability_bar/interface.png",
+  "abilities": {
+    "staff_projectile_sound": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "playsound minecraft:ui.cartography_table.take_result master @a ~ ~ ~",
+        "item replace entity @s weapon.mainhand with minecraft:map",
+        "item modify entity @s weapon.mainhand alienevo:master_control_map_name"
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }],
+           "unlocking": [
+          {
+            "type": "palladium:has_power",
+            "power": "alienevo_aliens:galvan"
+          }
+        ]
+      }
+    },
+      "map_tell": {
+      "type": "palladium:command",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "first_tick_commands": [
+        "function alienevo:abilities/scroll"
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:action",
+            "cooldown": 0,
+            "key_type": "right_click",
+            "needs_empty_hand": false
+          }],
+           "unlocking": [
+               {
+            "type": "palladium:not",
+            "conditions": [
+              {
+            "type": "palladium:has_power",
+            "power": "alienevo_aliens:galvan"
+          }
+        ]
+      }
+    ]
+  }
+    }
+  }
+}
+  

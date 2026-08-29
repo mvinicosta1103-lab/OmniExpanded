@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "alienevo:code_tablet"
+    },
+    "title": {
+      "translate": "advancement.alienevo.code_master.title",
+      "color": "yellow",
+      "bold": false
+    },
+    "description": {
+      "translate": "advancement.alienevo.code_master.desc"
+    },
+    "background": "alienevo:textures/gui/power_screen/power_screen.png",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alienevo:discover_stronghold",
+  "criteria": {
+    "code_mastercontrol": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

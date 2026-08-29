@@ -1,0 +1,143 @@
+{
+  "name": {
+    "text": "Speedforce"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "habb:textures/gui/flash/flash_icon.png"
+  },
+  "persistent_data": false,
+  "hidden": true,
+  "background": "minecraft:textures/block/red_concrete.png",
+  "primary_color": "#E72D2D",
+  "secondary_color": "#1a1a1a",
+  "abilities": {
+    "Speedforce": {
+      "type": "palladium:command",
+      "gui_position": [
+        0,
+        0
+      ],
+      "title": "Speedforce",
+      "icon": "habb:textures/gui/flash/flash_icon.png",
+      "hidden": false,
+      "first_tick_commands": [
+        "summon minecraft:lightning_bolt"
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [
+        "effect give @s minecraft:slowness 1 6 true"
+      ]
+    },
+    "lightning_sparks_yellow": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "alienevo:lightning"
+    },
+    "electrocute_timer": {
+      "type": "palladium:animation_timer",
+      "icon": "minecraft:blaze_rod",
+      "title": "null",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": false,
+      "list_index": 3,
+      "gui_position": "null",
+      "description": "null",
+      "start_value": 0,
+      "max_value": 200
+    },
+    "electrocute_remove": {
+      "type": "palladium:command",
+      "gui_position": [
+        0,
+        0
+      ],
+      "title": "Speedforce",
+      "icon": "habb:textures/gui/flash/flash_icon.png",
+      "hidden": false,
+      "first_tick_commands": [
+        ""
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [
+        "superpower remove alienevo:electrocute @s",
+        "effect clear @s"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "ability": "electrocute_timer"
+          },
+          {
+            "type": "palladium:animation_timer_ability",
+            "ability": "electrocute_timer",
+            "min": 200,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "electrocute_death": {
+      "type": "palladium:command",
+      "gui_position": [
+        0,
+        0
+      ],
+      "title": "Speedforce",
+      "icon": "habb:textures/gui/flash/flash_icon.png",
+      "hidden": false,
+      "first_tick_commands": [
+        ""
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [
+        "superpower remove alienevo:electrocute @s",
+        "effect clear @s"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:health",
+            "min_health": 0,
+            "max_health": 0
+          }
+        ]
+      }
+    },
+    "charged_creeper": {
+      "type": "palladium:command",
+      "gui_position": [
+        0,
+        0
+      ],
+      "title": "Speedforce",
+      "icon": "habb:textures/gui/flash/flash_icon.png",
+      "hidden": false,
+      "first_tick_commands": [
+        "data merge entity @e[type=creeper,limit=1,sort=nearest,distance=0..1] {powered:1b}"
+      ],
+      "last_tick_commands": [
+        ""
+      ],
+      "commands": [
+        ""
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:entity_type",
+            "entity_type": "minecraft:creeper"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "slime_puddle",
+    "icon": {
+        "type": "palladium:texture",
+        "texture": "#alienevo:omnitrix_main"
+    },
+    "abilities": {
+        "slime_puddle_loop": {
+            "type": "palladium:command",
+            "first_tick_commands": [
+                "scoreboard objectives add slime_puddle_time dummy",
+                "scoreboard objectives add slime_puddle_extinguished dummy",
+                "scoreboard players set @s slime_puddle_time 200"
+            ],
+            "commands": [
+                "scoreboard players remove @s slime_puddle_time 1",
+                "execute as @e[distance=..4,type=!minecraft:glow_item_frame,type=!minecraft:armor_stand,type=!minecraft:item_frame,type=!palladium:suit_stand,type=!minecraft:item] run effect give @s alienevo:goo 1 0 true",
+                "execute if entity @s[tag=!extinguished] run execute if entity @e[distance=..4,palladium.power=alienevo_aliens:pyronite] run setblock ~ ~ ~ minecraft:fire",
+                "execute if score @s slime_puddle_time matches ..0 run kill @s",
+                "execute if score @s slime_puddle_time matches ..0 run superpower remove alienevo:slime_puddle @s",
+                "execute if score @s slime_puddle_extinguished matches 1.. run scoreboard players remove @s slime_puddle_extinguished 1",
+                "execute if score @s slime_puddle_extinguished matches 1 run tag @s remove extinguished"
+            ],
+            "last_tick_commands": [],
+            "hidden": true
+        },
+        "goo_fire": {
+            "type": "alienevo:goo_fire"
+        }
+    }
+}

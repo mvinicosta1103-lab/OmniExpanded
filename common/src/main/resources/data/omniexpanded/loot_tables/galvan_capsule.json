@@ -1,0 +1,162 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": {
+        "type": "minecraft:uniform",
+        "min": 3,
+        "max": 8
+      },
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 4,
+          "name": "alienevo:galvan_scrap",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
+          "name": "minecraft:iron_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_yellow",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_white",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_orange",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_red",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_blue",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_light_blue",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_purple",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_pink",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "alienevo:upgrade_shards",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_gray",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_light_gray",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_cyan",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_magenta",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_brown",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_green",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "alienevo:upgrade_shards_black",
+          "functions": [ { "function": "minecraft:set_count", "count": { "type": "minecraft:uniform", "min": 2, "max": 4 } } ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "palladium:lead_ingot",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

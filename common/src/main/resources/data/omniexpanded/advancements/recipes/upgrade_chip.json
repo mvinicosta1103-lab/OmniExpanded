@@ -1,0 +1,46 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_galvan_scrap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["alienevo:galvan_scrap"] }
+        ]
+      }
+    },
+    "has_galvan_metal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["alienevo:galvan_metal"] }
+        ]
+      }
+    },
+    "has_raw_titanium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "items": ["palladium:raw_titanium"] }
+        ]
+      }
+    },
+    "has_upgrade_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          { "tag": "alienevo:upgrade_crystals" }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["has_galvan_scrap", "has_galvan_metal", "has_raw_titanium", "has_upgrade_crystal"]
+  ],
+  "rewards": {
+    "recipes": [
+      "alienevo:upgrade_chip"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "alienevo:prototype_core"
+    },
+    "title": {
+      "translate": "advancement.alienevo.obtain_core.title"
+    },
+    "description": {
+      "translate": "advancement.alienevo.obtain_core.desc"
+    },
+    "background": "alienevo:textures/gui/power_screen/power_screen.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "alienevo:discover_ship",
+  "criteria": {
+    "prototype_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "alienevo:prototype_cores"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "prototype_core"
+    ]
+  ]
+}

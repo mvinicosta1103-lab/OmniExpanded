@@ -1,0 +1,6 @@
+{
+  "lifetime": 3,
+  "has_physics": true,
+  "gravity": 0.1,
+  "quad_size": 0.2
+}

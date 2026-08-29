@@ -1,0 +1,43 @@
+{
+  "name": {
+    "text": "Diamond Spike"
+  },
+  "icon": {
+    "type": "palladium:texture",
+    "texture": "#alienevo:omnitrix_main"
+  },
+  "persistent_data": false,
+  "abilities": {
+    "spike_model": {
+      "type": "palladium:render_layer",
+      "hidden": true,
+      "render_layer": "alienevo:aliens/alien_3/crystal"
+    },
+    "spike_timer": {
+      "type": "palladium:animation_timer",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "start_value": 0,
+      "max_value": 200
+    },
+    "kill": {
+      "type": "palladium:command",
+      "hidden": true,
+      "commands": [
+        "playsound block.amethyst_block.step player @a ~ ~ ~ 0.75 1 0.025",
+        "kill @s"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:animation_timer_ability",
+            "power": "null",
+            "ability": "spike_timer",
+            "min": 200,
+            "max": 200
+          }
+        ]
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@
   },
   "icon": {
     "type": "palladium:texture",
-    "texture": "#alienevo:omnitrix_main"
+    "texture": "omniexpanded:textures/item/upgraded_omnitrix.png"
   },
   "persistent_data": true,
   "hidden": false,
@@ -41,13 +41,13 @@
     "prototype_omnitrix": {
       "type": "palladium:render_layer",
       "hidden": true,
-      "render_layer": "alienevo:prototype_omnitrix"
+      "render_layer": "omniexpanded:upgraded_omnitrix"
     },
     "open_omnitrix_quick": {
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "open_trigger",
       "conditions": {
@@ -82,7 +82,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "close_trigger",
       "conditions": {
@@ -123,7 +123,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "open_trigger",
       "conditions": {
@@ -187,7 +187,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "close_trigger",
       "conditions": {
@@ -605,7 +605,7 @@
     },
     "spin_right_geo": {
       "type": "geckolib:render_layer_animation",
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "spinr_trigger",
       "hidden": true,
@@ -657,7 +657,7 @@
     "spin_left_geo": {
       "type": "geckolib:render_layer_animation",
       "hidden": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "spinl_trigger",
       "conditions": {
@@ -1084,7 +1084,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "close_trigger",
       "conditions": {
@@ -1148,7 +1148,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "playlist_swap",
       "conditions": {
@@ -1310,7 +1310,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "settings_trigger",
       "conditions": {
@@ -1400,7 +1400,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "settings_trigger_close",
       "conditions": {
@@ -1503,7 +1503,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "settings_trigger_right",
       "conditions": {
@@ -1542,7 +1542,7 @@
     "spin_left_geo_s": {
       "type": "geckolib:render_layer_animation",
       "hidden": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "settings_trigger_left",
       "conditions": {
@@ -1582,7 +1582,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "code_right",
       "conditions": {
@@ -1655,7 +1655,7 @@
     "spin_left_code": {
       "type": "geckolib:render_layer_animation",
       "hidden": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "code_left",
       "conditions": {
@@ -2523,7 +2523,7 @@
       "type": "geckolib:render_layer_animation",
       "hidden": true,
       "hidden_in_bar": true,
-      "render_layer": "alienevo:prototype_omnitrix",
+      "render_layer": "omniexpanded:upgraded_omnitrix",
       "controller": "spin",
       "animation_trigger": "master_control",
       "conditions": {
