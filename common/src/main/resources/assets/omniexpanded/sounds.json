@@ -1,0 +1,296 @@
+  {
+    "prototype_switch1": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_switch1"
+      ]
+    },
+    "prototype_switch3": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_switch3"
+      ]
+    },
+    "prototype_activate": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_activate"
+      ]
+    },
+    "prototype_transform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_transform"
+      ]
+    },
+    "prototype_timeout": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_timeout"
+      ]
+    },
+    "prototype_recharge": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_recharge"
+      ]
+    },
+    "prototype_sdm": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_sdm"
+      ]
+    },
+    "prototype_sdm_blink": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_sdm_blink"
+      ]
+    },
+    "prototype_master_control": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_master_control"
+      ]
+    },
+    "bite": {
+      "category": "player",
+      "sounds": [
+        "alienevo:bite"
+      ]
+    },
+    "playlist_swap": {
+      "category": "player",
+      "sounds": [
+        "alienevo:playlist_swap"
+      ]
+    },
+    "diamond_blade": {
+      "category": "player",
+      "sounds": [
+        "alienevo:diamond_blade"
+      ]
+    },
+    "diamond_blade_sheathe": {
+      "category": "player",
+      "sounds": [
+        "alienevo:diamond_blade_sheathe"
+      ]
+    },
+    "mask": {
+      "category": "player",
+      "sounds": [
+        "alienevo:mask"
+      ]
+    },
+    "prototype_failsafe": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_failsafe"
+      ]
+    },
+    "prototype_detransform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_detransform"
+      ]
+    },
+    "recal_detransform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:recal_detransform"
+      ]
+    },
+    "recal_transform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:recal_transform"
+      ]
+    },
+    "prototype_prime_loop": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_prime_loop"
+      ]
+    },
+    "prototype_1_transform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_1_transform"
+      ]
+    },
+    "prototype_master_transform": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_master_transform"
+      ]
+    },
+    "prototype_cycle_1": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_cycle_1"
+      ]
+    },
+    "prototype_cycle_2": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_cycle_2"
+      ]
+    },
+    "prototype_cycle_3": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_cycle_3"
+      ]
+    },
+    "prototype_cycle_4": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_cycle_4"
+      ]
+    },
+    "prototype_idle": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_idle"
+      ]
+    },
+    "move_arm": {
+      "category": "player",
+      "sounds": [
+        "alienevo:move_arm"
+      ]
+    },
+    "move_arm_close": {
+      "category": "player",
+      "sounds": [
+        "alienevo:move_arm_close"
+      ]
+    },
+    "prototype_hourglass": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_hourglass"
+      ]
+    },
+    "prototype_hourglass_close": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_hourglass_close"
+      ]
+    },
+    "color_module_insert": {
+      "category": "player",
+      "sounds": [
+        "alienevo:color_module_insert"
+      ]
+    },
+    "prototype_cycle_color": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_cycle_color"
+      ]
+    },
+    "prototype_decouple": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_decouple"
+      ]
+    },
+    "prototype_remove_core": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_remove_core"
+      ]
+    },
+    "prototype_core_place": {
+      "category": "player",
+      "sounds": [
+        "alienevo:prototype_core_place"
+      ]
+    },
+    "recal_activation": {
+      "category": "player",
+      "sounds": [
+        "alienevo:recal_activation"
+      ]
+    },
+    "recal_cycle": {
+      "category": "player",
+      "sounds": [
+        "alienevo:recal_cycle"
+      ]
+    },
+    "stinkfly_loop": {
+      "category": "player",
+      "sounds": [
+        "alienevo:stinkfly_loop"
+      ]
+    },
+    "stinkfly_rattle": {
+      "category": "player",
+      "sounds": [
+        "alienevo:stinkfly_rattle"
+      ]
+    },
+    "heatblast_fireshot": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_fireshot"
+      ]
+    },
+    "heatblast_fireloop": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_fireloop"
+      ]
+     },
+    "heatblast_tornado_loop": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_tornado_loop"
+      ]
+  },
+    "heatblast_tornado_start": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_tornado_start"
+      ]
+     },
+    "heatblast_fireball": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_fireball"      
+      ]
+      },
+    "heatblast_firebreath_start": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_firebreath_start"
+      ]
+       },
+    "heatblast_surf": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_surf"
+      ]
+      },
+    "heatblast_firebeam": {
+      "category": "player",
+      "sounds": [
+        "alienevo:heatblast_firebeam"
+      ]
+        },
+    "quill_shot": {
+      "category": "player",
+      "sounds": [
+        "alienevo:quill_shot"
+      ]
+    },
+    "arburian_roll": {
+      "category": "player",
+      "sounds": [
+        "alienevo:arburian_roll"
+      ]
+    }
+  }
