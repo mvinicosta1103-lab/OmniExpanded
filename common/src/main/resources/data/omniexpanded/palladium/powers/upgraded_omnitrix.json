@@ -1108,7 +1108,7 @@
       "type": "alienevo:omni_properties",
       "hidden": true,
       "watch": "upgraded",
-      "watch_namespace": "alienevo",
+      "watch_namespace": "omniexpanded",
       "use_timeout_bubble": true,
       "uniform": "prototype",
       "badge": "prototype"
