@@ -147,7 +147,7 @@
           },
           "D": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Buttons"
+            "objective": "AlienEvo.CoreSide"
           },
           "E": {
             "type": "palladium:objective_score",
@@ -889,7 +889,7 @@
           },
           "D": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Buttons"
+            "objective": "AlienEvo.CoreSide"
           },
           "E": {
             "type": "palladium:objective_score",
