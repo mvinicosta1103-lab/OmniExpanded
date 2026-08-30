@@ -43,6 +43,11 @@
       "hidden": true,
       "hidden_in_bar": true
     },
+    "enforce_upgraded_watch": {
+      "type": "omniexpanded:enforce_upgraded_watch",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
     "prototype_omnitrix": {
       "type": "palladium:render_layer",
       "hidden": true,
