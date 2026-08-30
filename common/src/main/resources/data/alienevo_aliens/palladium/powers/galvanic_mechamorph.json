@@ -1288,21 +1288,13 @@
       "description": "null"
     },
     "enter_omnitrix_upgrade": {
-      "type": "palladium:command",
+      "type": "omniexpanded:evolve_upgraded_omnitrix",
       "icon": "#alienevo:aliens/alien_9/upgrade",
       "title": {
         "text": "Entrar no Omnitrix"
       },
       "bar_color": "green",
       "hidden_in_bar": false,
-      "commands": [
-        "playsound alienevo:prototype_recharge master @a",
-        "superpower remove alienevo_aliens:galvanic_mechamorph @s",
-        "superpower remove alienevo:prototype_omnitrix @s",
-        "clear @s alienevo:prototype_omnitrix 1",
-        "give @s alienevo:upgraded_omnitrix",
-        "superpower add omniexpanded:upgraded_omnitrix @s"
-      ],
       "conditions": {
         "enabling": [
           {
@@ -1313,6 +1305,17 @@
           {
             "type": "palladium:has_power",
             "power": "alienevo:prototype_omnitrix"
+          },
+          {
+            "type": "palladium:not",
+            "conditions": [
+              {
+                "type": "palladium:objective_score",
+                "objective": "AlienEvo.10kPhase",
+                "min_score": 1,
+                "max_score": 1
+              }
+            ]
           }
         ]
       }

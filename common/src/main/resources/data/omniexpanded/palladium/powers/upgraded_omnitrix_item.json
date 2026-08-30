@@ -50,7 +50,7 @@
         "scoreboard players set @s AlienEvo.DialOuter -1",
         "scoreboard players set @s AlienEvo.Tubes -1",
         "playsound alienevo:prototype_recharge master @a",
-        "superpower add omniexpanded:upgraded_omnitrix @s"
+        "superpower add alienevo:upgraded_omnitrix @s"
       ],
       "conditions": {
         "enabling": [
@@ -66,7 +66,7 @@
                 "conditions": [
                   {
                     "type": "palladium:has_power",
-                    "power": "omniexpanded:upgraded_omnitrix"
+                    "power": "alienevo:upgraded_omnitrix"
                   },
                   {
                      "type": "alienevo:is_alien"

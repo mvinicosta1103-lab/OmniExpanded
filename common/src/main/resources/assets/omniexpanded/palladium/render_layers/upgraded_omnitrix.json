@@ -355,7 +355,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -482,7 +482,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -513,7 +513,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -539,7 +539,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -570,7 +570,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -596,7 +596,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -627,7 +627,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -653,7 +653,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -730,7 +730,7 @@
                 },
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -1203,7 +1203,7 @@
               "conditions": [
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -1234,7 +1234,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -1260,7 +1260,7 @@
               "conditions": [
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -1291,7 +1291,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -1317,7 +1317,7 @@
               "conditions": [
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -1348,7 +1348,7 @@
       "conditions": [
         {
           "type": "palladium:ability_integer_property",
-          "power": "omniexpanded:upgraded_omnitrix",
+          "power": "alienevo:upgraded_omnitrix",
           "ability": "settings_menu_icons",
           "property": "value",
           "min": 1,
@@ -1374,7 +1374,7 @@
               "conditions": [
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
@@ -1451,7 +1451,7 @@
               "conditions": [
                 {
                   "type": "palladium:ability_unlocked",
-                  "power": "omniexpanded:upgraded_omnitrix",
+                  "power": "alienevo:upgraded_omnitrix",
                   "ability": "removed_core"
                 }
               ]
