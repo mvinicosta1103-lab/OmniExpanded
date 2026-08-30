@@ -38,7 +38,7 @@ StartupEvents.registry('palladium:abilities', event => {
 
         // liga a superpower do Upgraded (mesma convenção de nome que o resto do addon usa:
         // alienevo:<prefixo>_omnitrix, senão o decouple.js não reconhece o watch)
-        superpowerUtil.addSuperpower(entity, new ResourceLocation('alienevo:upgraded_omnitrix'));
+        superpowerUtil.addSuperpower(entity, new ResourceLocation('omniexpanded:upgraded_omnitrix'));
 
       } finally {
         entity.persistentData.putBoolean('omniexpanded_evolving', false);
