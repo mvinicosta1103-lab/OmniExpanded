@@ -167,7 +167,7 @@
           },
           "I": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Tubes"
+            "objective": "AlienEvo.CoreSide"
           },
           "J": {
             "type": "palladium:objective_score",
@@ -909,7 +909,7 @@
           },
           "I": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Tubes"
+            "objective": "AlienEvo.CoreSide"
           },
           "J": {
             "type": "palladium:objective_score",
