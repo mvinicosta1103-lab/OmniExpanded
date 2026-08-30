@@ -135,6 +135,11 @@ PalladiumEvents.registerPropertiesClientSided((event) => {
         event.registerProperty('10k_glow_color_4', 'string', "77b81a");
         event.registerProperty('10k_glow_color_5', 'string', "639d11");
 
+        event.registerProperty('upgraded_glow_color_1', 'string', "b3ff40");
+        event.registerProperty('upgraded_glow_color_2', 'string', "a7f72e");
+        event.registerProperty('upgraded_glow_color_3', 'string', "8ed721");
+        event.registerProperty('upgraded_core_sync_color', 'string', "ffffff");
+
         event.registerProperty('recal_glow_color_base', 'string', "0,0,0");
         event.registerProperty('recal_glow_color_1', 'string', "b3ff40");
         event.registerProperty('recal_glow_color_2', 'string', "a7f72e");
