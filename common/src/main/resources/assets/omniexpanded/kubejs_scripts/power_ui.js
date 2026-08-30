@@ -2,6 +2,32 @@ let Minecraft = Java.loadClass('net.minecraft.client.Minecraft');
 const RenderSystem = Java.loadClass('com.mojang.blaze3d.systems.RenderSystem');
 let SoundEvents = Java.loadClass('net.minecraft.sounds.SoundEvents');
 
+// OmniExpanded fix: alguns watches (ex: upgraded) ainda nao tem todas as
+// texturas de icone/glow dedicadas. Sem essa checagem, um blit() numa
+// ResourceLocation que nao existe pode interromper o resto do desenho
+// desse frame (title/skills renderizam, mas skill points e o painel de
+// cor a direita somem silenciosamente). Isso faz o mesmo blit de forma seg
+// -ura, pulando quando a textura nao existir em nenhum resource pack.
+let missingTextureWarned = {};
+function safeBlit(guiGraphics, location, x, y, u, v, w, h, texW, texH) {
+    try {
+        let hasTexture = Minecraft.getInstance().getResourceManager().getResource(location).isPresent();
+        if (!hasTexture) {
+            if (!missingTextureWarned[location.toString()]) {
+                missingTextureWarned[location.toString()] = true;
+                console.warn(`[OmniExpanded] power_ui: textura ausente, pulando: ${location}`);
+            }
+            return;
+        }
+        guiGraphics.blit(location, x, y, u, v, w, h, texW, texH);
+    } catch (err) {
+        if (!missingTextureWarned[location.toString()]) {
+            missingTextureWarned[location.toString()] = true;
+            console.warn(`[OmniExpanded] power_ui: falha ao desenhar ${location}: ${err}`);
+        }
+    }
+}
+
 let isPowerScreenClosed = false;
 let editingNickname = false;
 let editingHexCode = false;
@@ -1554,7 +1580,7 @@ PalladiumEvents.renderPowerScreen(e => {
             // DRAW OMNITRIX ICON
             let omnitrixX = Math.floor((screenWidth) / 2 - 116 + 9);
             let omnitrixY = Math.floor((screenHeight) / 2 - 119);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
@@ -1572,7 +1598,7 @@ PalladiumEvents.renderPowerScreen(e => {
             let omnitrixColor2Blue = (omnitrixColor2Int & 0xFF) / 255.0;
 
             e.guiGraphics.setColor(omnitrixColor1Red, omnitrixColor1Green, omnitrixColor1Blue, 1.0);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
@@ -1580,7 +1606,7 @@ PalladiumEvents.renderPowerScreen(e => {
                 16, 16
             );
             e.guiGraphics.setColor(omnitrixColor2Red, omnitrixColor2Green, omnitrixColor2Blue, 1.0);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
@@ -1962,7 +1988,7 @@ PalladiumEvents.renderPowerScreen(e => {
             // DRAW OMNITRIX ICON
             let omnitrixX = Math.floor((screenWidth) / 2 - 116 + 9);
             let omnitrixY = Math.floor((screenHeight) / 2 - 119 + 7);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
@@ -1980,7 +2006,7 @@ PalladiumEvents.renderPowerScreen(e => {
             let omnitrixColor2Blue = (omnitrixColor2Int & 0xFF) / 255.0;
 
             e.guiGraphics.setColor(omnitrixColor1Red, omnitrixColor1Green, omnitrixColor1Blue, 1.0);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
@@ -1988,7 +2014,7 @@ PalladiumEvents.renderPowerScreen(e => {
                 16, 16
             );
             e.guiGraphics.setColor(omnitrixColor2Red, omnitrixColor2Green, omnitrixColor2Blue, 1.0);
-            e.guiGraphics.blit(
+            safeBlit(e.guiGraphics,
                 new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
