@@ -2014,7 +2014,7 @@
       }
     },
     "decouple_omnitrix": {
-      "type": "alienevo:decouple",
+      "type": "omniexpanded:decouple_upgraded",
       "hidden": true,
       "icon": "omniexpanded:textures/gui/upgraded/decouple.png",
       "title": {
