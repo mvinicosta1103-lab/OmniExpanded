@@ -1172,7 +1172,7 @@
       "type": "alienevo:omnitrix_cycle_playlists",
       "update_main_property": true,
       "hidden": true,
-      "icon": "alienevo:textures/gui/prototype/playlist.png",
+      "icon": "omniexpanded:textures/gui/upgraded/playlist.png",
       "list_index": 4,
       "title": {
         "translate": "ability.alienevo.omnitrix.cycle_playlist"
@@ -1199,7 +1199,7 @@
     "spin_right_playlist": {
       "type": "palladium:animation_timer",
       "max_value": 3,
-      "icon": "alienevo:textures/gui/prototype/playlist.png",
+      "icon": "omniexpanded:textures/gui/upgraded/playlist.png",
       "list_index": 4,
       "title": {
         "translate": "ability.alienevo.omnitrix.cycle_playlist"
@@ -2006,7 +2006,7 @@
     "decouple_omnitrix": {
       "type": "alienevo:decouple",
       "hidden": true,
-      "icon": "alienevo:textures/gui/prototype/decouple.png",
+      "icon": "omniexpanded:textures/gui/upgraded/decouple.png",
       "title": {
         "translate": "ability.alienevo.omnitrix.decouple"
       },
@@ -2073,7 +2073,7 @@
     "remove_quick_change": {
       "type": "palladium:command",
       "hidden": true,
-      "icon": "alienevo:textures/gui/prototype/quick_select.png",
+      "icon": "omniexpanded:textures/gui/upgraded/quick_select.png",
       "title": "Quick Change Function",
       "bar_color": "black",
       "first_tick_commands": [
@@ -2236,7 +2236,7 @@
     "quick_change": {
       "type": "palladium:command",
       "hidden": false,
-      "icon": "alienevo:textures/gui/prototype/quick_select.png",
+      "icon": "omniexpanded:textures/gui/upgraded/quick_select.png",
       "description": {
         "translate": "desc.alienevo.omnitrix.function.quick_change"
       },

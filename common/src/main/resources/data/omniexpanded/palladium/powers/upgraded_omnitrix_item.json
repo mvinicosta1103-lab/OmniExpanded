@@ -4,10 +4,10 @@
   },
   "icon": {
     "type": "palladium:texture",
-    "texture": "alienevo:textures/gui/prototype/omnitrix.png"
+    "texture": "omniexpanded:textures/gui/upgraded/omnitrix_main/omnitrix_main_default.png"
   },
   "hidden": true,
-  "ability_bar_texture": "alienevo:textures/gui/bars/omnitrix_bar.png",
+  "ability_bar_texture": "omniexpanded:textures/gui/upgraded/base_empty.png",
   "abilities": {
     "apply_omnitrix": {
       "type": "alienevo:couple",
