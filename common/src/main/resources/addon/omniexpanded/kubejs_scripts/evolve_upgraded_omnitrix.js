@@ -35,6 +35,12 @@ StartupEvents.registry('palladium:abilities', event => {
                 // é o passo que o couple normalmente faz e que os comandos crus não faziam:
                 // sem isso, decouple/glow/etc continuam achando que o relógio é o "prototype"
                 palladium.setProperty(entity, 'watch', 'upgraded');
+                // watch_namespace precisa virar "omniexpanded" também, senão
+                // power_ui.js continua comparando contra "alienevo:upgraded_omnitrix"
+                // (que não existe) em vez do ID real da superpower
+                // (omniexpanded:upgraded_omnitrix), e os módulos de cor do
+                // relógio (Glow/Primary/Secondary) somem da tela.
+                palladium.setProperty(entity, 'watch_namespace', 'omniexpanded');
 
                 // liga a superpower do Upgraded (mesma convenção de nome que o resto do addon usa:
                 // alienevo:<prefixo>_omnitrix, senão o decouple.js não reconhece o watch)

@@ -24,6 +24,18 @@ StartupEvents.registry('palladium:abilities', event => {
             if (watch !== 'upgraded') {
                 palladium.setProperty(entity, 'watch', 'upgraded');
             }
+
+            // power_ui.js monta a aba do relógio como
+            // `${watch_namespace}:${watch}_omnitrix` e compara com o ID real
+            // da superpower (omniexpanded:upgraded_omnitrix). watch_namespace
+            // tem default "alienevo" pra todo mundo (palladium_properties.js),
+            // e nada no addon nunca troca ele pra "omniexpanded" - por isso
+            // essa comparação nunca batia e os módulos de cor (Glow/Primary/
+            // Secondary) do Upgraded nunca apareciam.
+            let watchNamespace = palladium.getProperty(entity, 'watch_namespace');
+            if (watchNamespace !== 'omniexpanded') {
+                palladium.setProperty(entity, 'watch_namespace', 'omniexpanded');
+            }
         });
 });
 
