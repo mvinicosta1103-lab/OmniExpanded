@@ -38,6 +38,11 @@
         ""
       ]
     },
+    "enforce_upgraded_exclusivity": {
+      "type": "omniexpanded:enforce_upgraded_exclusivity",
+      "hidden": true,
+      "hidden_in_bar": true
+    },
     "prototype_omnitrix": {
       "type": "palladium:render_layer",
       "hidden": true,

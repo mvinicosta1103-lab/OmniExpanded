@@ -20,29 +20,39 @@ function calculateYOffset(player, maxHealth) {
     return 0;
 }
 
+// The Upgraded Omnitrix reuses the same "display_codes" ability convention as
+// the Prototype (see decouple_unlock/omni-code abilities in upgraded_omnitrix.json),
+// so the code HUD just needs to also recognize its power id.
+function hasOmniCodeAbility(player) {
+    return (
+        abilityUtil.hasPower(player, "alienevo:prototype_omnitrix") &&
+        abilityUtil.isEnabled(player, "alienevo:prototype_omnitrix", "display_codes")
+    ) || (
+        abilityUtil.hasPower(player, "omniexpanded:upgraded_omnitrix") &&
+        abilityUtil.isEnabled(player, "omniexpanded:upgraded_omnitrix", "display_codes")
+    );
+}
+
 PalladiumEvents.registerGuiOverlays((event) => {
     event.register(
         'alienevo/code_hud',
         (minecraft, gui, poseStack, partialTick, screenWidth, screenHeight) => {
-            if (abilityUtil.hasPower(minecraft.player, "alienevo:prototype_omnitrix")) {
-                if (abilityUtil.isEnabled(minecraft.player, "alienevo:prototype_omnitrix", "display_codes")) {
-                    
-                    let maxHealth = minecraft.player.getMaxHealth();
-                    let yOffset = colorfulHeartsLoaded ? 0 : calculateYOffset(minecraft.player, maxHealth);
-                    
-                    let x = (screenWidth / 2) - (64 / 2) + 0.1;
-                    let y = screenHeight - 76 - yOffset;
-                    
-                    guiUtil.blit(
-                        new ResourceLocation('alienevo:textures/gui/codes/code_select.png'),
-                        poseStack,
-                        x, y,
-                        0, 0,
-                        64, 75,
-                        64, 75
-                    );
-                }
-            }
+            if (!hasOmniCodeAbility(minecraft.player)) return;
+
+            let maxHealth = minecraft.player.getMaxHealth();
+            let yOffset = colorfulHeartsLoaded ? 0 : calculateYOffset(minecraft.player, maxHealth);
+
+            let x = (screenWidth / 2) - (64 / 2) + 0.1;
+            let y = screenHeight - 76 - yOffset;
+
+            guiUtil.blit(
+                new ResourceLocation('alienevo:textures/gui/codes/code_select.png'),
+                poseStack,
+                x, y,
+                0, 0,
+                64, 75,
+                64, 75
+            );
         }
     );
 });
@@ -50,41 +60,38 @@ PalladiumEvents.registerGuiOverlays((event) => {
 PalladiumEvents.registerGuiOverlays((event) => {
     let lastCode = "000000";
     let currentPosition = 0;
-    
+
     event.register(
         'alienevo/code_hover',
         (minecraft, gui, poseStack, partialTick, screenWidth, screenHeight) => {
-            if (abilityUtil.hasPower(minecraft.player, "alienevo:prototype_omnitrix")) {
-                if (abilityUtil.isEnabled(minecraft.player, "alienevo:prototype_omnitrix", "display_codes")) {
-                    
-                    let maxHealth = minecraft.player.getMaxHealth();
-                    let yOffset = colorfulHeartsLoaded ? 0 : calculateYOffset(minecraft.player, maxHealth);
-                    
-                    let currentCode = minecraft.player.persistentData.code || "000000";
-                    
-                    if (currentCode !== lastCode) {
-                        currentPosition = (currentPosition + 1) % 6;
-                        lastCode = currentCode;
-                    }
-                    
-                    let baseX = (screenWidth / 2) - (64 / 2) + 0.1;
-                    let baseY = screenHeight - 76 - yOffset;
-                    
-                    let xOffset = currentPosition * 11;
-                    
-                    
-                    let score = palladium.scoreboard.getScore(minecraft.player, "code_position", 0);
-                    
-                    guiUtil.blit(
-                        new ResourceLocation(`alienevo:textures/gui/codes/code_selection_${score}.png`),
-                        poseStack,
-                        baseX + xOffset, baseY,
-                        0, 0,
-                        64, 75,
-                        64, 75
-                    );
-                }
+            if (!hasOmniCodeAbility(minecraft.player)) return;
+
+            let maxHealth = minecraft.player.getMaxHealth();
+            let yOffset = colorfulHeartsLoaded ? 0 : calculateYOffset(minecraft.player, maxHealth);
+
+            let currentCode = minecraft.player.persistentData.code || "000000";
+
+            if (currentCode !== lastCode) {
+                currentPosition = (currentPosition + 1) % 6;
+                lastCode = currentCode;
             }
+
+            let baseX = (screenWidth / 2) - (64 / 2) + 0.1;
+            let baseY = screenHeight - 76 - yOffset;
+
+            let xOffset = currentPosition * 11;
+
+
+            let score = palladium.scoreboard.getScore(minecraft.player, "code_position", 0);
+
+            guiUtil.blit(
+                new ResourceLocation(`alienevo:textures/gui/codes/code_selection_${score}.png`),
+                poseStack,
+                baseX + xOffset, baseY,
+                0, 0,
+                64, 75,
+                64, 75
+            );
         }
     );
 });

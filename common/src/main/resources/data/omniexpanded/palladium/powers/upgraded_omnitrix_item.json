@@ -69,7 +69,11 @@
                     "power": "omniexpanded:upgraded_omnitrix"
                   },
                   {
-                     "type": "alienevo:is_alien"
+                    "type": "palladium:has_power",
+                    "power": "alienevo:prototype_omnitrix"
+                  },
+                  {
+                    "type": "alienevo:is_alien"
                   },
                   {
                     "type": "palladium:has_tag",
