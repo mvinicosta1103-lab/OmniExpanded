@@ -38,6 +38,27 @@ function getRemainingCooldown(entity) {
     return Math.max(0, Math.ceil(remainingTicks / 20));
 }
 
+// O Upgraded Omnitrix é a evolução do Prototype e roda a mesma ability
+// "failsafe_unlock" (desbloqueada pelo mesmo scoreboard compartilhado
+// AlienEvo.PrototypeSkillP - ver upgraded_omnitrix.json), mas como
+// superpower ele é omniexpanded:upgraded_omnitrix, não
+// alienevo:prototype_omnitrix. Antes, esse failsafe só reconhecia o
+// Prototype: quem estivesse com o Upgraded vestido não tinha nenhuma
+// proteção contra a morte "de verdade" (sem isso, o jogador podia perder o
+// relógio e, com ele, o acesso a todos os aliens já desbloqueados). Essa
+// função detecta qual dos dois omnitrix está ativo no momento pra que o
+// failsafe funcione igual nos dois (mesmo padrão usado em code_ui.js pro
+// HUD de código).
+function getActiveOmnitrixPower(entity) {
+    if (abilityUtil.hasPower(entity, "omniexpanded:upgraded_omnitrix")) {
+        return "omniexpanded:upgraded_omnitrix";
+    }
+    if (abilityUtil.hasPower(entity, "alienevo:prototype_omnitrix")) {
+        return "alienevo:prototype_omnitrix";
+    }
+    return null;
+}
+
 
 let users = ['minecraft:player'];
 
@@ -53,11 +74,13 @@ users.forEach(key => {
             return;
         }
 
-        if (!abilityUtil.hasPower(entity, "alienevo:prototype_omnitrix")) {
+        let omnitrixPower = getActiveOmnitrixPower(entity);
+
+        if (!omnitrixPower) {
             return;
         }
 
-        if (!palladium.abilities.isUnlocked(entity, new ResourceLocation("alienevo:prototype_omnitrix"), "failsafe_unlock")) {
+        if (!palladium.abilities.isUnlocked(entity, new ResourceLocation(omnitrixPower), "failsafe_unlock")) {
             return;
         }
 
@@ -93,86 +116,86 @@ users.forEach(key => {
 
 
 EntityEvents.death(event => {
- const entity = event.entity;
+    const entity = event.entity;
 
- if (!entity.player) {
-     return;
- }
+    if (!entity.player) {
+        return;
+    }
 
- const username = entity.getGameProfile().getName();
+    const username = entity.getGameProfile().getName();
 
- let currentAlienNumber = palladium.getProperty(entity, 'omnitrix_cycle');
+    let currentAlienNumber = palladium.getProperty(entity, 'omnitrix_cycle');
 
- if (!currentAlienNumber || currentAlienNumber <= 0) {
-   return;
- }
+    if (!currentAlienNumber || currentAlienNumber <= 0) {
+        return;
+    }
 
- let alienInfo = global[`alienevo_alien_${currentAlienNumber}`];
- if (!alienInfo) {
-   return;
- }
+    let alienInfo = global[`alienevo_alien_${currentAlienNumber}`];
+    if (!alienInfo) {
+        return;
+    }
 
- let alienFullName = alienInfo[0];
- let alienNamespace = 'alienevo_aliens';
- let alienPath = alienFullName;
+    let alienFullName = alienInfo[0];
+    let alienNamespace = 'alienevo_aliens';
+    let alienPath = alienFullName;
 
- if (alienFullName.includes(':')) {
-   const parts = alienFullName.split(':');
-   alienNamespace = parts[0];
-   alienPath = parts[1];
- }
+    if (alienFullName.includes(':')) {
+        const parts = alienFullName.split(':');
+        alienNamespace = parts[0];
+        alienPath = parts[1];
+    }
 
- const powerName = `${alienNamespace}:${alienPath}`;
+    const powerName = `${alienNamespace}:${alienPath}`;
 
- if (abilityUtil.hasPower(entity, powerName)) {
-   entity.persistentData.remove('alienevo.previous_health');
-   entity.persistentData.remove('alienevo.health_percentage');
+    if (abilityUtil.hasPower(entity, powerName)) {
+        entity.persistentData.remove('alienevo.previous_health');
+        entity.persistentData.remove('alienevo.health_percentage');
 
-   entity.setHealth(1.0);
+        entity.setHealth(1.0);
 
-   entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:${alienPath}`);
-   entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove alienevo_aliens:all`);
+        entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:${alienPath}`);
+        entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove alienevo_aliens:all`);
 
-   if (alienNamespace !== 'alienevo_aliens') {
-     entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:all`);
-   }
+        if (alienNamespace !== 'alienevo_aliens') {
+            entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:all`);
+        }
 
-   let watchType = palladium.getProperty(entity, 'watch') || "prototype";
-   let watchNamespace = palladium.getProperty(entity, 'watch_namespace') || "alienevo";
-   let useTimeoutBubble = palladium.getProperty(entity, 'use_timeout_bubble');
+        let watchType = palladium.getProperty(entity, 'watch') || "prototype";
+        let watchNamespace = palladium.getProperty(entity, 'watch_namespace') || "alienevo";
+        let useTimeoutBubble = palladium.getProperty(entity, 'use_timeout_bubble');
 
-   if (entity.tags.contains("AlienEvo.MasterControl")) {
-     palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble"));
-   } else if (useTimeoutBubble === true) {
-     palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble_tout"));
-   } else {
-     palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble"));
-   }
+        if (entity.tags.contains("AlienEvo.MasterControl")) {
+            palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble"));
+        } else if (useTimeoutBubble === true) {
+            palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble_tout"));
+        } else {
+            palladium.superpowers.addSuperpower(entity, new ResourceLocation("alienevo:transform_bubble"));
+        }
 
-   palladium.superpowers.addSuperpower(entity, new ResourceLocation(`${watchNamespace}:${watchType}_omnitrix`));
+        palladium.superpowers.addSuperpower(entity, new ResourceLocation(`${watchNamespace}:${watchType}_omnitrix`));
 
-   entity.level.playSound(
-     null,
-     entity.x,
-     entity.y,
-     entity.z,
-     `alienevo:${watchType}_detransform`,
-     entity.getSoundSource(),
-     1.0,
-     1.0
-   );
+        entity.level.playSound(
+            null,
+            entity.x,
+            entity.y,
+            entity.z,
+            `alienevo:${watchType}_detransform`,
+            entity.getSoundSource(),
+            1.0,
+            1.0
+        );
 
-   if (entity.tags.contains("AlienEvo.MasterControl")) {
-     palladium.scoreboard.setScore(entity, 'AlienEvo.Timer', 1000);
-   } else {
-     palladium.scoreboard.setScore(entity, 'AlienEvo.Timer', 3000);
-   }
+        if (entity.tags.contains("AlienEvo.MasterControl")) {
+            palladium.scoreboard.setScore(entity, 'AlienEvo.Timer', 1000);
+        } else {
+            palladium.scoreboard.setScore(entity, 'AlienEvo.Timer', 3000);
+        }
 
-   palladium.setProperty(entity, 'watch_state', "timeout");
+        palladium.setProperty(entity, 'watch_state', "timeout");
 
-   entity.tags.remove("AlienEvo.Transformation");
+        entity.tags.remove("AlienEvo.Transformation");
 
-   event.cancel();
- } else {
- }
+        event.cancel();
+    } else {
+    }
 });
