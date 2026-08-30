@@ -1555,7 +1555,7 @@ PalladiumEvents.renderPowerScreen(e => {
             let omnitrixX = Math.floor((screenWidth) / 2 - 116 + 9);
             let omnitrixY = Math.floor((screenHeight) / 2 - 119);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
@@ -1573,7 +1573,7 @@ PalladiumEvents.renderPowerScreen(e => {
 
             e.guiGraphics.setColor(omnitrixColor1Red, omnitrixColor1Green, omnitrixColor1Blue, 1.0);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
@@ -1581,7 +1581,7 @@ PalladiumEvents.renderPowerScreen(e => {
             );
             e.guiGraphics.setColor(omnitrixColor2Red, omnitrixColor2Green, omnitrixColor2Blue, 1.0);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
@@ -1841,7 +1841,7 @@ PalladiumEvents.renderPowerScreen(e => {
         let stat_value_text_x = (screenWidth / 2) + 137 + 59 + 6;
         let stat_offset = 10;
 
-        // Draw stat labels   
+        // Draw stat labels
         let statLabels = [
             Component.translate(`stats.ui.alienevo.hp`).getString(),
             Component.translate(`stats.ui.alienevo.atk`).getString(),
@@ -1963,7 +1963,7 @@ PalladiumEvents.renderPowerScreen(e => {
             let omnitrixX = Math.floor((screenWidth) / 2 - 116 + 9);
             let omnitrixY = Math.floor((screenHeight) / 2 - 119 + 7);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
@@ -1981,7 +1981,7 @@ PalladiumEvents.renderPowerScreen(e => {
 
             e.guiGraphics.setColor(omnitrixColor1Red, omnitrixColor1Green, omnitrixColor1Blue, 1.0);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_1.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
@@ -1989,7 +1989,7 @@ PalladiumEvents.renderPowerScreen(e => {
             );
             e.guiGraphics.setColor(omnitrixColor2Red, omnitrixColor2Green, omnitrixColor2Blue, 1.0);
             e.guiGraphics.blit(
-                new ResourceLocation(`alienevo:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
+                new ResourceLocation(`${watch_namespace}:textures/item/${omnitrixTexturePath}_omnitrix_glow_2.png`),
                 omnitrixX, omnitrixY,
                 0, 0,
                 16, 16,
