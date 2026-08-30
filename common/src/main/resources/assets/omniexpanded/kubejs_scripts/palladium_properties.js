@@ -1,4 +1,3 @@
-
 function generateAlienColorProperties(event) {
     let processedBases = new Set();
 
@@ -75,7 +74,7 @@ PalladiumEvents.registerPropertiesClientSided((event) => {
         event.registerProperty('omnitrix_prev_alien', 'integer', 1);
         event.registerProperty('omnitrix_prev_prev_alien', 'integer', 1);
         event.registerProperty('cycle_quick_change', 'integer', 1);
-        event.registerProperty('watch', 'string', "default");
+        event.registerProperty('watch', 'string', "prototype");
         event.registerProperty('badge', 'string', "prototype");
         event.registerProperty('uniform', 'string', "default");
         event.registerProperty('AlienEvo.Color', 'string', "default");

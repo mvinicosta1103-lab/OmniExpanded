@@ -75,7 +75,7 @@ PalladiumEvents.registerProperties((event) => {
         event.registerProperty('omnitrix_prev_alien', 'integer', 1);
         event.registerProperty('omnitrix_prev_prev_alien', 'integer', 1);
         event.registerProperty('cycle_quick_change', 'integer', 1);
-        event.registerProperty('watch', 'string', "default");
+        event.registerProperty('watch', 'string', "prototype");
         event.registerProperty('watch_state', 'string', "default");
         event.registerProperty('badge', 'string', "prototype");
         event.registerProperty('uniform', 'string', "default");
