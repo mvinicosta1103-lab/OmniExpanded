@@ -139,7 +139,7 @@
           },
           "B": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.BaseSecondary"
           },
           "C": {
             "type": "palladium:objective_score",
@@ -147,7 +147,7 @@
           },
           "D": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.Buttons"
           },
           "E": {
             "type": "palladium:objective_score",
@@ -159,15 +159,15 @@
           },
           "G": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.DialInner"
           },
           "H": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.DialOuter"
           },
           "I": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.Tubes"
           },
           "J": {
             "type": "palladium:objective_score",
@@ -447,7 +447,7 @@
           },
           "H": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Invert"
+            "objective": "AlienEvo.DialOuter"
           },
           "GLOW_1": {
             "type": "palladium:string_property",
@@ -1004,7 +1004,7 @@
           },
           "B": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.BaseSecondary"
           },
           "C": {
             "type": "palladium:objective_score",
@@ -1012,7 +1012,7 @@
           },
           "D": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.Buttons"
           },
           "E": {
             "type": "palladium:objective_score",
@@ -1024,15 +1024,15 @@
           },
           "G": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.DialInner"
           },
           "H": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.DialOuter"
           },
           "I": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.CoreSide"
+            "objective": "AlienEvo.Tubes"
           },
           "J": {
             "type": "palladium:objective_score",
@@ -1296,7 +1296,7 @@
           },
           "H": {
             "type": "palladium:objective_score",
-            "objective": "AlienEvo.Invert"
+            "objective": "AlienEvo.DialOuter"
           },
           "GLOW_1": {
             "type": "palladium:string_property",
