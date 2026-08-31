@@ -30,7 +30,7 @@
           },
           {
             "type": "palladium:ability_integer_property",
-            "power": "alienevo:prototype_omnitrix",
+            "power": "alienevo:upgraded_omnitrix",
             "ability": "settings_menu",
             "property": "value",
             "min": 10,

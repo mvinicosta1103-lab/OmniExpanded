@@ -146,7 +146,7 @@ function processGalvanPod(blockEntity) {
 
     usedSlots.forEach(slot => {
         if (hasOmnitrix && slot === omnitrixSlot) {
-            blockEntity.inventory.setStackInSlot(slot, Item.of('alienevo:prototype_omnitrix', 1));
+            blockEntity.inventory.setStackInSlot(slot, Item.of('alienevo:upgraded_omnitrix', 1));
         } else {
             const [groupName, group] = pickRandomGroup();
             const selectedItem = pickRandomItem(groupName, group);

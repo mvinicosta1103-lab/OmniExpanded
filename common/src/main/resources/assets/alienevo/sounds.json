@@ -142,5 +142,11 @@
     "sounds": [
       "alienevo:prototype_transform"
     ]
+  },
+  "default_detransform": {
+    "category": "player",
+    "sounds": [
+      "alienevo:prototype_detransform"
+    ]
   }
 }

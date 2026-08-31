@@ -50,4 +50,14 @@ StartupEvents.registry('sound_event', event => {
     ];
 
     upgradedSounds.forEach(id => event.create('alienevo:' + id));
+
+    // The base AlienEvo mod's own omnitrix_timer.js calls
+    // alienevo:default_detransform as a fallback sound, but the base mod
+    // never actually registers a SoundEvent with that id - it only exists
+    // for prototype/recal/upgraded tiers. That mismatch crashes the game
+    // ("No such element with id alienevo:default_detransform in registry
+    // minecraft:sound_event!") whenever the timer's fallback path runs.
+    // Registering it here (same fix as the upgraded_* sounds above) closes
+    // that gap without touching the closed-source AlienEvo jar.
+    event.create('alienevo:default_detransform');
 });

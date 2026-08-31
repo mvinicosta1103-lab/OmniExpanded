@@ -1,4 +1,3 @@
-
 function toJsString(v){ if(v===null||v===undefined) return null; try { return String(v); } catch(e){ return null; } }
 function normalizeHex6(s){
   s = toJsString(s);
@@ -16,7 +15,7 @@ function normalizeRgbCsv(s){
   var r = clamp(m[1]), g = clamp(m[2]), b = clamp(m[3]);
   return r + ',' + g + ',' + b;
 }
-function getWatchPrefixFromBench(){ return 'prototype'; } 
+function getWatchPrefixFromBench(){ return 'prototype'; }
 
 
 function resetWatchGlowDefaultsOnEntity(entity, prefix){
@@ -164,7 +163,7 @@ BlockEvents.placed('alienevo:omnitrix_workbench', event => {
   }
 
   event.server.runCommandSilent(
-    `summon minecraft:armor_stand ${pos.x + 0} ${pos.y} ${pos.z + 0} {Rotation:[${adjustedYaw}f,0f],Tags:["workbench_stand"],Marker:1b,Invisible:1,NoGravity:1b}`
+      `summon minecraft:armor_stand ${pos.x + 0} ${pos.y} ${pos.z + 0} {Rotation:[${adjustedYaw}f,0f],Tags:["workbench_stand"],Marker:1b,Invisible:1,NoGravity:1b}`
   );
 });
 
@@ -180,7 +179,7 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
   }
 
   let hasWorkbenchPower = event.server.runCommandSilent(
-    `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..0.8,palladium.power=alienevo:omnitrix_workbench]`
+      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..0.8,palladium.power=alienevo:omnitrix_workbench]`
   );
 
   if (hasWorkbenchPower) {
@@ -205,7 +204,7 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
     let getArmorStandProperty = (propName, defaultValue) => {
       try {
         event.server.runCommandSilent(
-          `execute positioned ${pos.x} ${pos.y} ${pos.z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1] add prop_target`
+            `execute positioned ${pos.x} ${pos.y} ${pos.z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1] add prop_target`
         );
 
         let armorStand = null;
@@ -253,16 +252,16 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
     };
 
     let hasMasterControl = event.server.runCommandSilent(
-      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.MasterControl]`
+        `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.MasterControl]`
     );
     let hasGlowingEyes = event.server.runCommandSilent(
-      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.GlowingEyes]`
+        `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.GlowingEyes]`
     );
     let hasMainUniform = event.server.runCommandSilent(
-      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.MainUniform]`
+        `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.MainUniform]`
     );
     let hasSecondaryUniform = event.server.runCommandSilent(
-      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.SecondaryUniform]`
+        `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} if entity @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,tag=AlienEvo.SecondaryUniform]`
     );
 
     let allDNA = {};
@@ -270,7 +269,7 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
     let alienNamespaceData = "{}";
 
     let omnitrixEntity = event.level.getEntitiesWithin(AABB.of(pos.x, pos.y, pos.z, pos.x + 1, pos.y + 2, pos.z + 1))
-      .find(entity => entity.type === 'minecraft:interaction' && entity.getTags().contains('omnitrix_interaction'));
+        .find(entity => entity.type === 'minecraft:interaction' && entity.getTags().contains('omnitrix_interaction'));
 
     if (omnitrixEntity) {
       for (let playlist = 1; playlist <= 10; playlist++) {
@@ -374,13 +373,13 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
       let omnitrixId = getPrototypeOmnitrixItem(scores.phase10k, scores.stage10k);
 
       event.server.runCommandSilent(
-        `execute as ${username} positioned ${pos.x + 0.5} ${pos.y + 0.5} ${pos.z + 0.5} run summon minecraft:item ~ ~ ~ {Item:{id:"${omnitrixId}",Count:1b,tag:${JSON.stringify(nbtData)}},PickupDelay:10,Motion:[0.0,0.2,0.0]}`
+          `execute as ${username} positioned ${pos.x + 0.5} ${pos.y + 0.5} ${pos.z + 0.5} run summon minecraft:item ~ ~ ~ {Item:{id:"${omnitrixId}",Count:1b,tag:${JSON.stringify(nbtData)}},PickupDelay:10,Motion:[0.0,0.2,0.0]}`
       );
     }
   }
 
   event.server.runCommandSilent(
-    `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} run kill @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1]`
+      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} run kill @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1]`
   );
 
   const interactionTags = [
@@ -390,7 +389,7 @@ BlockEvents.broken('alienevo:omnitrix_workbench', event => {
   ];
   interactionTags.forEach(tag => {
     event.server.runCommandSilent(
-      `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} run kill @e[type=minecraft:interaction,tag=${tag},sort=nearest,limit=1]`
+        `execute as ${username} positioned ${pos.x} ${pos.y} ${pos.z} run kill @e[type=minecraft:interaction,tag=${tag},sort=nearest,limit=1]`
     );
   });
 });
@@ -439,10 +438,7 @@ BlockEvents.placed('alienevo:omnitrix_workbench', event => {
 
 
 const VALID_OMNITRIX_TYPES = [
-  "alienevo:prototype_omnitrix",
-  "alienevo:prototype_omnitrix_phase1",
-  "alienevo:prototype_omnitrix_phase2",
-  "alienevo:prototype_omnitrix_10k"
+  "alienevo:upgraded_omnitrix"
 ];
 
 
@@ -459,7 +455,7 @@ ItemEvents.entityInteracted('*', event => {
   if (!mainHandItem || !VALID_OMNITRIX_TYPES.includes(mainHandItem.id)) return;
 
   if (event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..1.1,palladium.power=alienevo:omnitrix_workbench]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=minecraft:armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..1.1,palladium.power=alienevo:omnitrix_workbench]`
   )) return;
 
   event.server.runCommandSilent(`execute positioned ${x} ${y} ${z} run playsound minecraft:item.armor.equip_netherite master @a[distance=..10] ~ ~ ~ 1 1.5`);
@@ -683,7 +679,7 @@ ItemEvents.entityInteracted(event => {
   if (mainHandItem.id !== 'minecraft:air') return;
 
   let hasWorkbenchPower = event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,palladium.power=alienevo:omnitrix_workbench]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,palladium.power=alienevo:omnitrix_workbench]`
   );
   if (!hasWorkbenchPower) return;
 
@@ -735,7 +731,7 @@ ItemEvents.entityInteracted(event => {
   let getArmorStandProperty = (propName, defaultValue) => {
     try {
       event.server.runCommandSilent(
-        `execute positioned ${x} ${y} ${z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..1.1] add prop_target`
+          `execute positioned ${x} ${y} ${z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1,distance=..1.1] add prop_target`
       );
       let armorStand = null;
       try {
@@ -783,16 +779,16 @@ ItemEvents.entityInteracted(event => {
   };
 
   let hasMasterControl = event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.MasterControl]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.MasterControl]`
   );
   let hasGlowingEyes = event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.GlowingEyes]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.GlowingEyes]`
   );
   let hasMainUniform = event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.MainUniform]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.MainUniform]`
   );
   let hasSecondaryUniform = event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.SecondaryUniform]`
+      `execute as ${username} positioned ${x} ${y} ${z} if entity @e[type=armor_stand,tag=workbench_stand,distance=0..1.1,sort=nearest,limit=1,tag=AlienEvo.SecondaryUniform]`
   );
 
   let currentPlaylist = event.target.persistentData.getInt('current_playlist') || 1;
@@ -898,12 +894,12 @@ ItemEvents.entityInteracted(event => {
 
   event.server.runCommandSilent(`execute positioned ${x} ${y} ${z} run playsound minecraft:item.armor.equip_leather master @a[distance=..10] ~ ~ ~ 1 1`);
   event.server.runCommandSilent(
-    `execute as ${username} positioned ${x} ${y} ${z} run superpower remove alienevo:omnitrix_workbench @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1]`
+      `execute as ${username} positioned ${x} ${y} ${z} run superpower remove alienevo:omnitrix_workbench @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1]`
   );
 
   ['MasterControl','GlowingEyes','MainUniform','SecondaryUniform'].forEach(tag => {
     event.server.runCommandSilent(
-      `execute as ${username} positioned ${x} ${y} ${z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1] remove AlienEvo.${tag}`
+        `execute as ${username} positioned ${x} ${y} ${z} run tag @e[type=armor_stand,tag=workbench_stand,sort=nearest,limit=1] remove AlienEvo.${tag}`
     );
   });
 
@@ -916,8 +912,5 @@ function getAlienName(alienId) {
 }
 
 function getPrototypeOmnitrixItem(phase, stage) {
-  if (phase === 1 && stage === 2) return "alienevo:prototype_omnitrix_10k";
-  if (phase === 1 && stage === 1) return "alienevo:prototype_omnitrix_phase2";
-  if (phase === 1 && stage === 0) return "alienevo:prototype_omnitrix_phase1";
-  return "alienevo:prototype_omnitrix";
+  return "alienevo:upgraded_omnitrix";
 }

@@ -1304,7 +1304,7 @@
           },
           {
             "type": "palladium:has_power",
-            "power": "alienevo:prototype_omnitrix"
+            "power": "alienevo:upgraded_omnitrix"
           },
           {
             "type": "palladium:not",

@@ -25,9 +25,6 @@ function calculateYOffset(player, maxHealth) {
 // so the code HUD just needs to also recognize its power id.
 function hasOmniCodeAbility(player) {
     return (
-        abilityUtil.hasPower(player, "alienevo:prototype_omnitrix") &&
-        abilityUtil.isEnabled(player, "alienevo:prototype_omnitrix", "display_codes")
-    ) || (
         abilityUtil.hasPower(player, "omniexpanded:upgraded_omnitrix") &&
         abilityUtil.isEnabled(player, "omniexpanded:upgraded_omnitrix", "display_codes")
     );

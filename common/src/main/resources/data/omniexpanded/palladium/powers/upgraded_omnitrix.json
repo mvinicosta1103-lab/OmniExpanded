@@ -48,7 +48,7 @@
       "hidden": true,
       "hidden_in_bar": true
     },
-    "prototype_omnitrix": {
+    "upgraded_omnitrix": {
       "type": "palladium:render_layer",
       "hidden": true,
       "render_layer": "omniexpanded:upgraded_omnitrix"

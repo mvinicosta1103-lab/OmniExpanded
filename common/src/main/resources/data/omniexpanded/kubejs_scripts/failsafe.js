@@ -38,23 +38,16 @@ function getRemainingCooldown(entity) {
     return Math.max(0, Math.ceil(remainingTicks / 20));
 }
 
-// O Upgraded Omnitrix é a evolução do Prototype e roda a mesma ability
-// "failsafe_unlock" (desbloqueada pelo mesmo scoreboard compartilhado
-// AlienEvo.PrototypeSkillP - ver upgraded_omnitrix.json), mas como
-// superpower ele é omniexpanded:upgraded_omnitrix, não
-// alienevo:prototype_omnitrix. Antes, esse failsafe só reconhecia o
-// Prototype: quem estivesse com o Upgraded vestido não tinha nenhuma
-// proteção contra a morte "de verdade" (sem isso, o jogador podia perder o
-// relógio e, com ele, o acesso a todos os aliens já desbloqueados). Essa
-// função detecta qual dos dois omnitrix está ativo no momento pra que o
-// failsafe funcione igual nos dois (mesmo padrão usado em code_ui.js pro
-// HUD de código).
+// Este failsafe reconhece o Upgraded Omnitrix (superpower
+// omniexpanded:upgraded_omnitrix), que roda a ability "failsafe_unlock"
+// (desbloqueada pelo scoreboard AlienEvo.PrototypeSkillP - ver
+// upgraded_omnitrix.json). Sem isso, o jogador podia perder o relógio e,
+// com ele, o acesso a todos os aliens já desbloqueados. Essa função
+// detecta se o omnitrix está ativo no momento pra que o failsafe funcione
+// (mesmo padrão usado em code_ui.js pro HUD de código).
 function getActiveOmnitrixPower(entity) {
     if (abilityUtil.hasPower(entity, "omniexpanded:upgraded_omnitrix")) {
         return "omniexpanded:upgraded_omnitrix";
-    }
-    if (abilityUtil.hasPower(entity, "alienevo:prototype_omnitrix")) {
-        return "alienevo:prototype_omnitrix";
     }
     return null;
 }
