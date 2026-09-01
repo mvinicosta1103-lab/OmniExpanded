@@ -15,6 +15,24 @@
 // automaticamente qualquer alien que sumir assim que detecta que o relógio
 // saiu - não importa se foi pelo N nativo, pelo nosso decouple_omnitrix,
 // ou qualquer outro caminho.
+//
+// FIX 1 (debounce): abilityUtil.hasPower pode retornar false por 1 tick só
+// durante a animação de girar o dial (estado transitório do Palladium),
+// mesmo com o relógio continuando equipado. Antes, isso era lido como
+// "o relógio saiu" e o script restaurava/mexia no meio da animação,
+// fazendo os aliens parecerem sumir visualmente. Agora só tratamos como
+// "saiu de verdade" depois de 2 leituras consecutivas (1 segundo) sem o
+// power - um flicker de 1 tick não passa mais disso.
+//
+// FIX 2 (wipe em pé, sem sair do upgraded): confirmado que a ability nativa
+// pode limpar os superpowers alienevo_aliens:* SEM nunca tirar o player do
+// estado "upgraded" (hasUpgraded continua true o tempo todo). O branch de
+// restauração original só rodava na transição hasUpgraded true -> false,
+// então esse tipo de wipe passava batido. Agora, mesmo com hasUpgraded
+// true, o script compara a lista atual com o backup a cada leitura; se
+// aliens do backup sumiram, conta 2 leituras seguidas confirmando (mesmo
+// debounce anti-flicker do FIX 1) e restaura na hora, sem esperar sair do
+// upgraded.
 // ===============================
 
 ServerEvents.tick(event => {
@@ -28,19 +46,51 @@ ServerEvents.tick(event => {
             let hadUpgraded = player.persistentData.getBoolean('omniexpanded_had_upgraded');
 
             if (hasUpgraded) {
-                // backup contínuo enquanto o relógio está equipado
                 let ids = palladium.powers.getPowerIds(player);
                 let alienIds = ids
                     .map(id => id.toString())
                     .filter(id => id.startsWith('alienevo_aliens:') && id !== 'alienevo_aliens:all');
 
-                if (alienIds.length > 0) {
-                    player.persistentData.putString('omniexpanded_alien_backup', alienIds.join(','));
+                let backup = player.persistentData.getString('omniexpanded_alien_backup');
+                let backedUpAliens = backup ? backup.split(',').filter(s => s.length > 0) : [];
+                let missingWhileEquipped = backedUpAliens.filter(id => alienIds.indexOf(id) === -1);
+
+                if (missingWhileEquipped.length > 0 && backedUpAliens.length > 0) {
+                    // lista atual está menor que o backup mesmo com o relógio equipado -
+                    // pode ser wipe da ability nativa, ou só uma leitura ruim no meio de
+                    // alguma outra animação. Confirma por 2 leituras seguidas antes de agir.
+                    let wipeMissCount = player.persistentData.getInt('omniexpanded_equipped_miss_count') + 1;
+                    player.persistentData.putInt('omniexpanded_equipped_miss_count', wipeMissCount);
+
+                    if (wipeMissCount >= 2) {
+                        missingWhileEquipped.forEach(id => {
+                            superpowerUtil.addSuperpower(player, new ResourceLocation(id));
+                        });
+                        player.persistentData.putInt('omniexpanded_equipped_miss_count', 0);
+                    }
+                } else {
+                    player.persistentData.putInt('omniexpanded_equipped_miss_count', 0);
+
+                    // lista íntegra (igual ou maior que o backup) - atualiza o backup normalmente
+                    if (alienIds.length > 0) {
+                        player.persistentData.putString('omniexpanded_alien_backup', alienIds.join(','));
+                    }
                 }
 
+                // zera qualquer contagem de "saiu do upgraded" pendente
+                player.persistentData.putInt('omniexpanded_miss_count', 0);
                 player.persistentData.putBoolean('omniexpanded_had_upgraded', true);
             } else if (hadUpgraded) {
-                // o Upgraded Omnitrix acabou de sair (decouple, N nativo, evolução, etc.)
+                // hasUpgraded veio false - pode ser saída real ou flicker da animação do dial.
+                // Só confirma como "saiu de verdade" depois de 2 leituras seguidas assim.
+                let missCount = player.persistentData.getInt('omniexpanded_miss_count') + 1;
+                player.persistentData.putInt('omniexpanded_miss_count', missCount);
+
+                if (missCount < 2) {
+                    continue; // ainda não confirmado - ignora esse tick, não mexe em nada
+                }
+
+                // confirmado: o Upgraded Omnitrix realmente saiu (decouple, N nativo, evolução, etc.)
                 let backup = player.persistentData.getString('omniexpanded_alien_backup');
 
                 if (backup) {
@@ -57,6 +107,7 @@ ServerEvents.tick(event => {
                 }
 
                 player.persistentData.putBoolean('omniexpanded_had_upgraded', false);
+                player.persistentData.putInt('omniexpanded_miss_count', 0);
             }
         } catch (error) {
         }
