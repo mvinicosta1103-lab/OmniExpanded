@@ -52,10 +52,11 @@ StartupEvents.registry('palladium:abilities', event => {
 // - Limpa os scoreboards/tags de estado (RemovedCore, SelfDestruct, timers
 //   etc.) pra não sobrar lixo de uma sessão anterior quando o jogador
 //   voltar a vestir o relógio depois.
-// - NÃO dá o item de volta: o item físico nunca é removido do inventário
-//   no dna_bond (diferente do couple do Prototype), então ele já está com
-//   o jogador o tempo todo. Dar o item de novo aqui é justamente o que
-//   causava a clonagem.
+// - Devolve o item físico ao inventário do jogador (mesmo comportamento do
+//   decouple do Prototype). O dna_bond (upgraded_omnitrix_item.json) agora
+//   roda "clear @s alienevo:upgraded_omnitrix 1" ao equipar, então o item
+//   realmente sai do inventário nesse momento - sem isso, dar o item aqui
+//   de novo causaria clonagem.
 //
 // Trava com persistentData (mesmo padrão de upgraded_omnitrix_exclusivity.js
 // e evolve_upgraded_omnitrix.js) pra não disparar mais de uma vez no mesmo
@@ -85,9 +86,10 @@ StartupEvents.registry('palladium:abilities', event => {
                 entity.server.runCommandSilent('scoreboard players set ' + username + ' AlienEvo.SelfDestruct 0');
                 entity.server.runCommandSilent('scoreboard players set ' + username + ' AlienEvo.Timer 0');
 
-                // desliga a superpower - sem devolver item, já que ele nunca
-                // saiu do inventário do jogador
+                // desliga a superpower e devolve o item ao inventário
+                // (mesmo comportamento do Prototype)
                 superpowerUtil.removeSuperpower(entity, new ResourceLocation('omniexpanded:upgraded_omnitrix'));
+                entity.server.runCommandSilent('give ' + username + ' alienevo:upgraded_omnitrix');
 
             } finally {
                 entity.persistentData.putBoolean('omniexpanded_decoupling_upgraded', false);

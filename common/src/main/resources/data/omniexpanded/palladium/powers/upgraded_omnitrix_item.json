@@ -62,7 +62,8 @@
         "scoreboard players set @s AlienEvo.10kPhase 0",
         "scoreboard players set @s AlienEvo.Timer 0",
         "playsound alienevo:prototype_recharge master @a",
-        "superpower add omniexpanded:upgraded_omnitrix @s"
+        "superpower add omniexpanded:upgraded_omnitrix @s",
+        "clear @s alienevo:upgraded_omnitrix 1"
       ],
       "conditions": {
         "enabling": [

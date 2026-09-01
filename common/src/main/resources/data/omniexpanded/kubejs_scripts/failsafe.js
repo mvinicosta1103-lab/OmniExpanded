@@ -147,11 +147,6 @@ EntityEvents.death(event => {
         entity.setHealth(1.0);
 
         entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:${alienPath}`);
-        entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove alienevo_aliens:all`);
-
-        if (alienNamespace !== 'alienevo_aliens') {
-            entity.server.runCommandSilent(`execute as ${username} at @s run superpower remove ${alienNamespace}:all`);
-        }
 
         let watchType = palladium.getProperty(entity, 'watch') || "prototype";
         let watchNamespace = palladium.getProperty(entity, 'watch_namespace') || "alienevo";
