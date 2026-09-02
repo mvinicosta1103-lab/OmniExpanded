@@ -1,7 +1,0 @@
-{
-  "lifetime": 10,
-  "has_physics": false,
-  "gravity": 0.01,
-  "quad_size": 2.5,
-  "texture_type": "aging"
-}

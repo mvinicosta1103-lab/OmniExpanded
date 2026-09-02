@@ -1,1 +1,0 @@
-damage @p 0.1 minecraft:generic

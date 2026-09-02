@@ -1,1 +1,0 @@
-summon minecraft:armor_stand ~ ~ ~ {NoGravity:0b,Silent:1b,Palladium:{Properties:{superpowers:["alienevo:slime"]}}}

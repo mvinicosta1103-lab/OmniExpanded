@@ -1,7 +1,0 @@
-{
-  "lifetime": 200,
-  "has_physics": true,
-  "gravity": 0.7,
-  "quad_size": 0.2,
-  "render_type": "translucent"
-}

@@ -1,9 +1,0 @@
-execute unless block ~-1 ~-1 ~-1 #alienevo:unminable run fill ~-1 ~-1 ~-1 ~-1 ~-1 ~-1 air destroy
-execute unless block ~-1 ~-1 ~ #alienevo:unminable run fill ~-1 ~-1 ~ ~-1 ~-1 ~ air destroy
-execute unless block ~-1 ~-1 ~1 #alienevo:unminable run fill ~-1 ~-1 ~1 ~-1 ~-1 ~1 air destroy
-execute unless block ~-1 ~ ~-1 #alienevo:unminable run fill ~-1 ~ ~-1 ~-1 ~ ~-1 air destroy
-execute unless block ~-1 ~ ~ #alienevo:unminable run fill ~-1 ~ ~ ~-1 ~ ~ air destroy
-execute unless block ~-1 ~ ~1 #alienevo:unminable run fill ~-1 ~ ~1 ~-1 ~ ~1 air destroy
-execute unless block ~-1 ~1 ~-1 #alienevo:unminable run fill ~-1 ~1 ~-1 ~-1 ~1 ~-1 air destroy
-execute unless block ~-1 ~1 ~ #alienevo:unminable run fill ~-1 ~1 ~ ~-1 ~1 ~ air destroy
-execute unless block ~-1 ~1 ~1 #alienevo:unminable run fill ~-1 ~1 ~1 ~-1 ~1 ~1 air destroy

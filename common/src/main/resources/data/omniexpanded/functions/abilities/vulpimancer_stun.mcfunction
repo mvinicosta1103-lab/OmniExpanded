@@ -1,1 +1,0 @@
-effect give @e[limit=1,type=!palladium:custom_projectile,tag=!Vulpimancer,tag=!quill,sort=nearest] minecraft:slowness 7 4 true
