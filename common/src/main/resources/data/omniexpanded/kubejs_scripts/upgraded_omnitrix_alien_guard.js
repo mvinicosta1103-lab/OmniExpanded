@@ -26,7 +26,20 @@
 // ao SERVIDOR/mundo, não à entidade), guardado num mapa por UUID do
 // jogador. Isso sobrevive à morte, ao respawn, e até a trocar de
 // dimensão - só reseta se o mundo inteiro for resetado.
+//
+// DESCOBERTA 3 (print com cadeados após a morte): as funções bloqueadas
+// (ciclar aliens, transformar, etc.) são abilities do Palladium com
+// condição `scoreboard_score_buyable` no placar `AlienEvo.PrototypeSkillP`
+// (thresholds de 1 ou 2 pontos - ver upgraded_omnitrix.json). O comando
+// `/alienevoautoadd` deve estar restaurando esse placar manualmente.
+//
+// FIX 5: em vez de depender do comando, o script garante sozinho que esse
+// placar nunca fique abaixo do necessário - a cada 0.5s, se estiver menor
+// que o mínimo exigido por qualquer ability, ele é reposto automaticamente.
+// Isso cobre tanto o reset na morte quanto qualquer outro caminho que
+// zere esse placar, e o jogador nunca mais precisa digitar o comando.
 // ===============================
+const MIN_PROTOTYPE_SKILL_POINTS = 5; // acima do maior threshold (2), com folga
 
 ServerEvents.loaded(event => {
     try {
@@ -72,6 +85,15 @@ ServerEvents.tick(event => {
 
             let hasUpgraded = abilityUtil.hasPower(player, 'omniexpanded:upgraded_omnitrix');
             let hadUpgraded = getServerBoolean(event.server, kHadUpgraded);
+
+            // Garante que o placar de pontos nunca fique abaixo do necessário
+            // pras abilities do Upgraded Omnitrix ficarem destravadas - sem isso,
+            // aparecem os cadeados até alguém rodar /alienevoautoadd manualmente.
+            let skillPoints = palladium.scoreboard.getScore(player, 'AlienEvo.PrototypeSkillP', 0);
+            if (skillPoints < MIN_PROTOTYPE_SKILL_POINTS) {
+                console.log(`[OmniExpanded][DEBUG] AlienEvo.PrototypeSkillP baixo (${skillPoints}) em ${player.name.string} - repondo pra ${MIN_PROTOTYPE_SKILL_POINTS}`);
+                palladium.scoreboard.setScore(player, 'AlienEvo.PrototypeSkillP', MIN_PROTOTYPE_SKILL_POINTS);
+            }
 
             // Sempre lê a lista atual de aliens, não importa o estado do omnitrix
             let alienIds = palladium.powers.getPowerIds(player)
