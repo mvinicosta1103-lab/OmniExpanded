@@ -30,10 +30,22 @@
 //
 // O fix do placar AlienEvo.PrototypeSkillP (cadeados) continua igual,
 // já confirmado funcionando pelos logs.
+//
+// FIX 6: quem equipa o Upgraded Omnitrix e nunca teve nenhum slot
+// preenchido (nem agora, nem no backup) recebe automaticamente o codex
+// base de 10 aliens clássicos (alien_codex.js, números 1-10) na
+// playlist 1, slots 1-10 - sem precisar desbloquear na mão. Só roda uma
+// vez por jogador (na primeira vez que o mapa de slots dele aparece
+// totalmente vazio com o Upgraded equipado); depois disso os slots
+// dele já existem e o backup/restore normal cuida do resto.
 // ===============================
 const MIN_PROTOTYPE_SKILL_POINTS = 5; // acima do maior threshold (2), com folga
 const MAX_PLAYLISTS = 10;
 const MAX_SLOTS = 10;
+// Codex base (alien_codex.js, números 1-10): heatblast, wildmutt,
+// diamondhead, xlr8, greymatter, fourarms, stinkfly, ripjaws, upgrade,
+// ghostfreak - nessa ordem, plantados na playlist 1 slots 1-10.
+const DEFAULT_CODEX_ALIENS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 ServerEvents.loaded(event => {
     try {
@@ -80,6 +92,18 @@ function getServerString(server, key, fallback) {
     return (val === undefined || val === null || val === '') ? (fallback === undefined ? '' : fallback) : val;
 }
 
+// Planta o codex base (playlist 1, slots 1-10) no jogador e devolve os
+// pares "p_s:alienNum" plantados, no mesmo formato usado pelo backup.
+function seedDefaultCodex(player) {
+    let seeded = [];
+    DEFAULT_CODEX_ALIENS.forEach((alienNum, index) => {
+        let slot = index + 1; // slot 1..10
+        player.persistentData.putInt(`alienevo.alien_1_${slot}`, alienNum);
+        seeded.push(`1_${slot}:${alienNum}`);
+    });
+    return seeded;
+}
+
 ServerEvents.tick(event => {
     if (event.server.tickCount % 10 !== 0) return; // roda 2x por segundo
 
@@ -108,6 +132,14 @@ ServerEvents.tick(event => {
             let backedUpSlots = backupRaw ? backupRaw.split(',').filter(s => s.length > 0) : [];
 
             console.log(`[OmniExpanded][DEBUG] ${player.name.string} | watch=${palladium.getProperty(player, 'watch')} | slots_agora=${currentSlots.length} | backup=${backedUpSlots.length}`);
+
+            // FIX 6: primeira vez com o Upgraded e sem nenhum slot (nem agora,
+            // nem no backup) - planta o codex base automaticamente.
+            let hasUpgraded = abilityUtil.hasPower(player, 'omniexpanded:upgraded_omnitrix');
+            if (hasUpgraded && currentSlots.length === 0 && backedUpSlots.length === 0) {
+                console.log(`[OmniExpanded][DEBUG] Plantando codex base (aliens 1-10) em ${player.name.string}`);
+                currentSlots = seedDefaultCodex(player);
+            }
 
             // Mapa zerado mas existe backup - restaura os slots perdidos
             // (ex: morte que não preservou persistentData da entidade).
