@@ -46,6 +46,16 @@ StartupEvents.registry('palladium:abilities', event => {
                 // alienevo:<prefixo>_omnitrix, senão o decouple.js não reconhece o watch)
                 superpowerUtil.addSuperpower(entity, new ResourceLocation('omniexpanded:upgraded_omnitrix'));
 
+                // FIX 7: o quick change por TECLA (bindtransform + QUICKCHANGE01-10)
+                // trava 100% na tag AlienEvo.MasterControl (quick_change.js linha 132),
+                // sem nenhum fallback por watch equipado - diferente da roda do mouse,
+                // que já libera sozinha via a superpower alienevo:quick_change (que o
+                // Upgraded já concede no JSON dele). Pra quem evolui pro Upgraded ter
+                // quick change por tecla também, sem precisar rodar /mastercontrol na
+                // mão, a gente dá a tag junto aqui - mesma tag que a workbench já usa
+                // pra esse fim em outro fluxo (workbench.js).
+                entity.server.runCommandSilent('tag ' + username + ' add AlienEvo.MasterControl');
+
             } finally {
                 entity.persistentData.putBoolean('omniexpanded_evolving', false);
             }
