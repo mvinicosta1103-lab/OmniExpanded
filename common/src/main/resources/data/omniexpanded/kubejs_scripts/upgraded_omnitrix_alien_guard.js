@@ -35,6 +35,24 @@
 // upgraded.
 // ===============================
 
+// DEBUG: confirma se as abilities registradas em addon/ (enforce_upgraded_watch,
+// decouple_upgraded, enforce_upgraded_exclusivity) existem nesta sessão. Se elas
+// não tiverem sido registradas (ex: só rodou /kubejs reload, sem reiniciar o jogo
+// do zero), esse log mostra "false" e explica o bug sem precisar adivinhar.
+ServerEvents.loaded(event => {
+    try {
+        let abilityRegistry = event.server.registryAccess()
+            .registryOrThrow(Java.loadClass('net.threetag.palladium.registry.PalladiumRegistries').ABILITY_SERIALIZER);
+        let ids = ['omniexpanded:enforce_upgraded_watch', 'omniexpanded:decouple_upgraded', 'omniexpanded:enforce_upgraded_exclusivity'];
+        ids.forEach(id => {
+            let present = abilityRegistry.containsKey(new ResourceLocation(id));
+            console.log(`[OmniExpanded][DEBUG] ability registrada? ${id} -> ${present}`);
+        });
+    } catch (error) {
+        console.log('[OmniExpanded][DEBUG] nao consegui checar o registry de abilities: ' + error);
+    }
+});
+
 ServerEvents.tick(event => {
     if (event.server.tickCount % 10 !== 0) return; // roda 2x por segundo
 
@@ -51,6 +69,8 @@ ServerEvents.tick(event => {
                     .map(id => id.toString())
                     .filter(id => id.startsWith('alienevo_aliens:') && id !== 'alienevo_aliens:all');
 
+                console.log(`[OmniExpanded][DEBUG] ${player.name.string} | hasUpgraded=true | watch=${palladium.getProperty(player, 'watch')} | watch_namespace=${palladium.getProperty(player, 'watch_namespace')} | aliens_agora=${alienIds.length} | backup=${(player.persistentData.getString('omniexpanded_alien_backup') || '').split(',').filter(s => s.length > 0).length}`);
+
                 let backup = player.persistentData.getString('omniexpanded_alien_backup');
                 let backedUpAliens = backup ? backup.split(',').filter(s => s.length > 0) : [];
                 let missingWhileEquipped = backedUpAliens.filter(id => alienIds.indexOf(id) === -1);
@@ -63,6 +83,7 @@ ServerEvents.tick(event => {
                     player.persistentData.putInt('omniexpanded_equipped_miss_count', wipeMissCount);
 
                     if (wipeMissCount >= 2) {
+                        console.log(`[OmniExpanded][DEBUG] WIPE detectado (equipado) em ${player.name.string}! Restaurando: ${missingWhileEquipped.join(', ')}`);
                         missingWhileEquipped.forEach(id => {
                             superpowerUtil.addSuperpower(player, new ResourceLocation(id));
                         });
@@ -100,6 +121,7 @@ ServerEvents.tick(event => {
                     let missing = backedUpAliens.filter(id => currentIds.indexOf(id) === -1);
 
                     if (missing.length > 0) {
+                        console.log(`[OmniExpanded][DEBUG] WIPE detectado (ao sair) em ${player.name.string}! Restaurando: ${missing.join(', ')}`);
                         missing.forEach(id => {
                             superpowerUtil.addSuperpower(player, new ResourceLocation(id));
                         });
@@ -110,6 +132,7 @@ ServerEvents.tick(event => {
                 player.persistentData.putInt('omniexpanded_miss_count', 0);
             }
         } catch (error) {
+            console.log(`[OmniExpanded][DEBUG] ERRO no alien_guard pra ${player.name.string}: ${error}`);
         }
     }
 });
